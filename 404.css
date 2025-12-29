@@ -1,0 +1,154 @@
+:root {
+    --primary: #7bee5e;
+    --secondary: #77ca62;
+    --foreground: #e2e2e2;
+    --background: #0f0f0f;
+    --fg: var(--foreground);
+    --bg: var(--background);
+    --text: var(--foreground);
+    --disabled: #4b4b4b;
+}
+
+* {
+    font-family: "Fira Code", monospace;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Fira Code", monospace;
+}
+
+
+
+
+a {
+    text-decoration: none;
+    color: var(--text);
+}
+#code-404 {
+    color: var(--primary);
+    font-size: 8rem;
+    margin: 0;
+}
+
+a:visited {
+    color: var(--text);
+    text-decoration: none;
+}
+#error-desc{
+    margin-top: 0;
+}
+
+#navbar {
+    display: flex;
+    flex-direction: row;
+    width: calc(100% - 64px);
+    /* height: 32px; */
+    justify-content: space-between;
+    align-items: center;
+    margin: 32px ;
+    background: repeating-linear-gradient(90deg, transparent, transparent 6px, var(--primary) 6px, var(--primary) 8px);
+    top: 0;
+}
+
+#navtitle {
+    font-size: 1.1rem;
+    margin: 0;
+    background: var(--primary);
+    height: 100%;
+    color: var(--bg);
+    padding: 6px 6px;
+    font-weight: 600;
+}
+
+#navigation-box {
+    display: none;
+}
+
+button {
+    height: fit-content;
+    padding: 8px 18px;
+    background-color: var(--bg);
+    color: var(--primary);
+    border: var(--primary) 2px solid;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: 1rem;
+}
+
+#go-back-btn {
+    margin-top: 10px;
+}
+
+button:hover {
+    border-color: var(--primary);
+    border-style: solid;
+    color: var(--primary);
+    text-decoration: underline;
+}
+
+#breadcrumbs {
+    margin: 0 32px;
+    font-size: 0.9rem;
+    padding-bottom: 8px;
+    color: var(--primary);
+    display: flex;
+    flex-direction: row;
+}
+
+#breadcrumbs a {
+    color: var(--primary);
+}
+#breadcrumbs p {
+    margin: 0;
+    color: var(--primary);
+}
+#breadcrumbs a:hover {
+    text-decoration: underline;
+}
+
+
+.hero {
+    display: flex;
+    flex-direction: column;
+    width: calc(100% - 4rem);
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+}
+
+#navgitbtn {
+    padding: 5px 12px;
+}
+
+
+
+
+
+@media (width<1175px) {
+
+}
+
+@media (width<500px) {
+    #error-desc {
+        font-size: 0.92rem;
+    }
+}
+
+@media (width<530px) {
+
+    #navbar {
+        width: calc(100% - 44px);
+        margin: 22px 22px;
+    }
+
+}
+
+@media (width<600px) {
+    #container {
+        padding-left: 10%
+    }
+}

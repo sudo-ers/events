@@ -110,6 +110,7 @@
 #location-info {
 	display: flex;
 	margin-top: 32px;
+	height: 88px;
 }
 
 #location-icon {
