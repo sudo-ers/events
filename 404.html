@@ -24,8 +24,8 @@
 	</section>
 	<script>
 		const path = window.location.pathname;
-		document.getElementById('404-path').textContent = path;
-		document.getElementById('url-path').textContent = path;
+		document.getElementById('404-path').textContent = path.slice(7);
+		document.getElementById('url-path').textContent = path.slice(7);
 	</script>
 </body>
 </html>
