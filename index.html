@@ -13,7 +13,9 @@
 <body>
 	<!-- NAVBAR -->
 	<nav id="navbar">
-		<a href="../" id="navtitle">sudoers</a>
+		<div id="navtitle">
+			<a href="../">sudoers</a>
+		</div>
 		<a href="https://github.com/Tharun-Kumar-A-01/FOSSTamilan"><button id="navgitbtn">Contribute</button></a>
 	</nav>
 	<div id="breadcrumbs">~/<a href="../../">sudoers</a>/<p>events</p></div>
@@ -29,7 +31,7 @@
 		</div>
 
 		<div id="right-side">
-			<img src="./assets/Thiruvalluvar.svg" id="hero-img"/>
+			<!-- <img src="./assets/Thiruvalluvar.svg" id="hero-img"/> -->
 			<h1 id="thirukkural">கற்க கசடறக் கற்பவை கற்றபின்<br>நிற்க அதற்குத் தக. <br><span style="display:block;width:100%;text-align: end;color:var(--primary);font-family: 'Noto Serif Tamil', serif;">- குறள் <span style="font-family: 'Fira Code',monospace;">391</span></span></h1>
 		</div>
 	</section>
@@ -81,21 +83,77 @@
 	<style>
 		@font-face {
 			font-family: 'Fira Code';
-			src: url('./fonts/Fira_Code/FiraCode-VariableFont_wght.ttf') format('truetype');
+			src: url('./fonts/Fira_Code/FiraCode_Regular.woff2') format('woff2-variations');
+			font-display: swap;
 		}
 
 		@font-face {
 			font-family: 'Noto Serif Tamil';
-			src: url('./fonts/Noto_Serif_Tamil/NotoSerifTamil-Variable.ttf') format('truetype');
+			src: url('./fonts/Noto_Serif_Tamil/NotoSerifTamil_Regular.woff2') format('woff2');
 			font-weight: normal;
+			font-display: swap;
 			font-style: normal;
 		}
 
-		@font-face {
+		/* @font-face {
 			font-family: 'Noto Serif Tamil';
-			src: url('./fonts/Noto_Serif_Tamil/NotoSerifTamil-Italic-Variable.ttf') format('truetype');
+			src: url('./fonts/Noto_Serif_Tamil/NotoSerifTamil_Italic.woff2') format('woff2-variable');
 			font-weight: normal;
+			font-display: swap;
 			font-style: italic;
+		} */
+		 /* Ioskeley Mono - Regular */
+		@font-face {
+			font-family: 'Ioskeley Mono';
+			font-style: normal;
+			font-weight: 400;
+			font-display: swap;
+			src: url("./fonts/Ioskeley_Mono/IoskeleyMono_Regular.woff2") format('woff2');
+		}
+
+		/* Ioskeley Mono - Bold */
+		@font-face {
+			font-family: 'Ioskeley Mono';
+			font-style: normal;
+			font-weight: 700;
+			font-display: swap;
+			src: url("./fonts/Ioskeley_Mono/IoskeleyMono_Bold.woff2") format('woff2');
+		}
+
+		/* Ioskeley Mono - ExtraBold */
+		@font-face {
+			font-family: 'Ioskeley Mono';
+			font-style: normal;
+			font-weight: 800;
+			font-display: swap;
+			src: url("./fonts/Ioskeley_Mono/IoskeleyMono_ExtraBold.woff2") format('woff2');
+		}
+
+		/* Ioskeley Mono - MediumItalic */
+		@font-face {
+			font-family: 'Ioskeley Mono';
+			font-style: italic;
+			font-weight: 500;
+			font-display: swap;
+			src: url("./fonts/Ioskeley_Mono/IoskeleyMono_MediumItalic.woff2") format('woff2');
+		}
+
+		/* Ioskeley Mono - BoldItalic */
+		@font-face {
+			font-family: 'Ioskeley Mono';
+			font-style: italic;
+			font-weight: 700;
+			font-display: swap;
+			src: url("./fonts/Ioskeley_Mono/IoskeleyMono_BoldItalic.woff2") format('woff2');
+		}
+
+		/* Ioskeley Mono - ExtraBoldItalic */
+		@font-face {
+			font-family: 'Ioskeley Mono';
+			font-style: italic;
+			font-weight: 800;
+			font-display: swap;
+			src: url("./fonts/Ioskeley_Mono/IoskeleyMono_ExtraBoldItalic.woff2") format('woff2');
 		}
 	</style>
 	<link rel="stylesheet" href="event-style.css">

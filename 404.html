@@ -8,7 +8,9 @@
 </head>
 <body>
 	<nav id="navbar">
-		<a href="../" id="navtitle">sudoers</a>
+		<div id="navtitle">
+			<a href="../">sudoers</a>
+		</div>
 		<a href="https://github.com/Tharun-Kumar-A-01/FOSSTamilan"><button id="navgitbtn">Contribute</button></a>
 	</nav>
 	<div id="breadcrumbs">~/<a href="/">sudoers</a>/<a href="/events">events</a><p id="404-path"></p></div>
@@ -16,16 +18,77 @@
 	<!-- HERO SECTION  -->
 	<section class="hero section">
 		<div id = "container">
-			<p id="error">ERROR</p>
+			<p id="error">:(  ERROR</p>
 			<h1 id="code-404">404</h1><br>
-			<h3 id="error-desc">cd : <span id="url-path"></span><br>No such file or directory</h3>
+			<h3 id="error-desc"><span style="color: var(--primary);">$ </span>cd <span id="url-path" style="color: var(--text);"></span><br><span style="color: var(--text);">No such file or directory</span></h3>
 			<a href="/events"><button id="go-back-btn">Go Back</button></a>
 		</div>
 	</section>
+	
 	<script>
 		const path = window.location.pathname;
 		document.getElementById('404-path').textContent = path.slice(7);
 		document.getElementById('url-path').textContent = path.slice(7);
 	</script>
+	
+	<style>
+		@font-face {
+			font-family: 'Fira Code';
+			src: url('./fonts/Fira_Code/FiraCode_Regular.woff2') format('woff2-variations');
+			font-display: swap;
+		}
+		@font-face {
+			font-family: 'Ioskeley Mono';
+			font-style: normal;
+			font-weight: 400;
+			font-display: swap;
+			src: url("./fonts/Ioskeley_Mono/IoskeleyMono_Regular.woff2") format('woff2');
+		}
+
+		/* Ioskeley Mono - Bold */
+		@font-face {
+			font-family: 'Ioskeley Mono';
+			font-style: normal;
+			font-weight: 700;
+			font-display: swap;
+			src: url("./fonts/Ioskeley_Mono/IoskeleyMono_Bold.woff2") format('woff2');
+		}
+
+		/* Ioskeley Mono - ExtraBold */
+		@font-face {
+			font-family: 'Ioskeley Mono';
+			font-style: normal;
+			font-weight: 800;
+			font-display: swap;
+			src: url("./fonts/Ioskeley_Mono/IoskeleyMono_ExtraBold.woff2") format('woff2');
+		}
+
+		/* Ioskeley Mono - MediumItalic */
+		@font-face {
+			font-family: 'Ioskeley Mono';
+			font-style: italic;
+			font-weight: 500;
+			font-display: swap;
+			src: url("./fonts/Ioskeley_Mono/IoskeleyMono_MediumItalic.woff2") format('woff2');
+		}
+
+		/* Ioskeley Mono - BoldItalic */
+		@font-face {
+			font-family: 'Ioskeley Mono';
+			font-style: italic;
+			font-weight: 700;
+			font-display: swap;
+			src: url("./fonts/Ioskeley_Mono/IoskeleyMono_BoldItalic.woff2") format('woff2');
+		}
+
+		/* Ioskeley Mono - ExtraBoldItalic */
+		@font-face {
+			font-family: 'Ioskeley Mono';
+			font-style: italic;
+			font-weight: 800;
+			font-display: swap;
+			src: url("./fonts/Ioskeley_Mono/IoskeleyMono_ExtraBoldItalic.woff2") format('woff2');
+		}
+	</style>
 </body>
 </html>

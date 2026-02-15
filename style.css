@@ -1,16 +1,23 @@
 :root {
     --primary: #7bee5e;
     --secondary: #77ca62;
-    --foreground: #e2e2e2;
-    --background: #0f0f0f;
+    --foreground: #eceae5d8;
+    --background: #131313;
+    /* --foreground: #e2e2e2; */
+    /* --background: #0f0f0f; */
     --fg: var(--foreground);
     --bg: var(--background);
     --text: var(--foreground);
     --disabled: #4b4b4b;
+  /* --accent: #7bee5e; */
+  /* --font-size: 1.7rem; */
+  /* --line-height: 1.54em; */
+  /* --radius: 0; */
 }
 
+
 * {
-    font-family: "Fira Code", monospace;
+    font-family: "Ioskeley Mono", monospace;
 }
 
 body {
@@ -18,7 +25,7 @@ body {
     padding: 0;
     background: var(--bg);
     color: var(--text);
-    font-family: "Fira Code", monospace;
+    font-family: "Ioskeley Mono", monospace;
 }
 
 a {
@@ -30,27 +37,67 @@ a:visited {
     color: var(--text);
     text-decoration: none;
 }
-
+/* 
 #navbar {
     display: flex;
     flex-direction: row;
-    width: calc(100% - 64px);
-    /* height: 32px; */
+    width: calc(100% - 40px);
+    height: 32px;
     justify-content: space-between;
     align-items: center;
-    margin: 32px ;
-    background: repeating-linear-gradient(90deg, transparent, transparent 6px, var(--primary) 6px, var(--primary) 8px);
+    margin: 20px 20px 10px 20px ;
+    background: repeating-linear-gradient(90deg,var(--primary),var(--primary) 2px,transparent 0,transparent 10px);
     top: 0;
 }
 
 #navtitle {
-    font-size: 1.1rem;
+    font-size: calc(1.7rem / 1.5);
+    line-height: 1.54rem;
     margin: 0;
+    padding: 7px 10px 7px;
     background: var(--primary);
     height: 100%;
     color: var(--bg);
-    padding: 6px 6px;
     font-weight: 600;
+} */
+
+#navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 19px 20px;
+}
+
+#navtitle {
+  display: flex;
+  flex: 1;
+}
+
+#navtitle::after {
+  content: "";
+  background: repeating-linear-gradient(90deg, var(--primary), var(--primary) 2px, transparent 0, transparent 10px);
+  display: block;
+  width: 100%;
+  right: 10px;
+}
+
+#navtitle a {
+    height: 28px;
+  flex: 0 0 auto;
+  max-width: 100%;
+  text-decoration: none;
+  font-size: calc(1.7rem / 1.5);
+  line-height: 1.54rem;
+}
+
+#navtitle a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  background: var(--primary);
+  color: var(--background);
+  font-weight: bold;
+  padding: 5px 10px;
 }
 
 #navigation-box {
@@ -76,8 +123,8 @@ button:hover {
 }
 
 #breadcrumbs {
-    margin: 0 32px;
-    font-size: 0.9rem;
+    margin: 32px 32px;
+    font-size: calc(1.7rem / 1.5);
     padding-bottom: 8px;
     color: var(--primary);
     display: flex;
@@ -104,17 +151,22 @@ button:hover {
 }
 
 #navgitbtn {
-    padding: 5px 12px;
+    padding: 7px 12px;
+    height: 100%;
 }
 
 #left-side {
-    width: calc(50% - 5rem);
+    width: calc(100% - 0rem);
     height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: start;
-    padding-left: 5rem;
+    align-items: center;
+    padding: 0;
+    /* padding-left: 5rem; */
     flex-direction: column;
+    background-image: url('./assets/Thiruvalluvar.svg');
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 #thirukkural {
@@ -142,8 +194,20 @@ button:hover {
 }
 
 #hero-title {
-    font-size: 3.6rem;
-    margin-top: 0;
+    /* font-size: 3.6rem; */
+    /* margin-top: 0; */
+    font-family: "Fira Code", monospace;
+
+	font-size: 4.6rem;
+	height: fit-content;
+	width: 100%;
+	text-align: center;
+	margin: 0 32px;
+
+}
+
+#hero-title span {
+    font-family: "Fira Code", monospace;
 }
 
 #contextmenu {
@@ -172,12 +236,8 @@ button:hover {
     margin-top: 20px;
 }
 
-@media (width<1175px) {
+/* @media (width<1175px) { */
 
-    #hero-img {
-        display: none;
-        position: static;
-    }
 
     #thirukkural {
         top: 0;
@@ -200,50 +260,15 @@ button:hover {
 
     #left-side {
         width: 100%;
-        padding-left: 3rem;
+        /* padding-left: 3rem; */
     }
 
-    #hero-title {
-        max-width: 900px;
-    }
-}
-
-@media (height<675px) {
-
-    #hero-img {
-        height: auto;
-        max-height: 90vh;
-        padding-top: 0;
-    }
-
-    #right-side {
-        align-items: start;
-    }
-
-    #thirukkural {
-        align-self: center;
-    }
-}
-
-@media (width<530px) {
-
-    #thirukkural {
-        font-size: 1rem;
-    }
-
-    #navbar {
-        width: calc(100% - 44px);
-        margin: 22px 22px;
-    }
-    #button-group {
-        flex-direction: column;
-    }
-}
-
+/* } */
 @media (width<700px) {
 
     #left-side {
-        padding-left: 1.5rem;
+    background-size: 100%;
+        /* padding-left: 1.5rem; */
     }
 
     #navigation-box {
@@ -267,3 +292,43 @@ button:hover {
         color: var(--primary);
     }
 }
+@media (height<675px) {
+
+    #hero-img {
+        height: auto;
+        max-height: 90vh;
+        padding-top: 0;
+    }
+
+    #right-side {
+        align-items: start;
+    }
+
+    #thirukkural {
+        align-self: center;
+    }
+}
+
+@media (width<530px) {
+
+    #thirukkural {
+        font-size: 1rem;
+    }
+    #hero-title {
+        font-size: 3.1rem;
+    }
+    #button-group {
+        flex-direction: column;
+        align-items: center;
+    }
+    #button-group a {
+        width: 100%;
+    }
+    #archive-btn {
+        width: 100%;
+    }
+}
+
+
+
+

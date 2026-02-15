@@ -7,7 +7,8 @@
 #this-month,
 #upcoming,
 #past {
-	font-size: 2.4rem;
+	font-size: 2.4rem;    
+	font-family: "Fira Code", monospace;
 	text-transform: uppercase;
 	padding-left: 46px;
 	padding-top: 80px;
@@ -71,6 +72,7 @@
 	font-size: 1.4rem;
 	margin-top: 12px;
 	color: var(--primary);
+	font-family: "Fira Code", monospace;
 	max-width: 380px;
 }
 
@@ -110,7 +112,7 @@
 #location-info {
 	display: flex;
 	margin-top: 32px;
-	height: 88px;
+	/* height: 88px; */
 }
 
 #location-icon {
@@ -125,7 +127,6 @@
 	line-clamp: 4;
 	-webkit-line-clamp: 4;
 	-webkit-box-orient: vertical;
-	-moz-box-orient: vertical;
 	overflow: hidden;
 	text-overflow: ellipsis;
 	margin: 0;

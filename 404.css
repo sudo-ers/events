@@ -1,8 +1,8 @@
 :root {
     --primary: #7bee5e;
     --secondary: #77ca62;
-    --foreground: #e2e2e2;
-    --background: #0f0f0f;
+    --foreground: #eceae5d8;
+    --background: #131313;
     --fg: var(--foreground);
     --bg: var(--background);
     --text: var(--foreground);
@@ -10,7 +10,7 @@
 }
 
 * {
-    font-family: "Fira Code", monospace;
+    font-family: "Ioskeley Mono", monospace;
 }
 
 body {
@@ -18,16 +18,14 @@ body {
     padding: 0;
     background: var(--bg);
     color: var(--text);
-    font-family: "Fira Code", monospace;
+    font-family: "Ioskeley Mono", monospace;
 }
-
-
-
 
 a {
     text-decoration: none;
     color: var(--text);
 }
+
 #code-404 {
     color: var(--primary);
     font-size: 8rem;
@@ -43,26 +41,44 @@ a:visited {
 }
 
 #navbar {
-    display: flex;
-    flex-direction: row;
-    width: calc(100% - 64px);
-    /* height: 32px; */
-    justify-content: space-between;
-    align-items: center;
-    margin: 32px ;
-    background: repeating-linear-gradient(90deg, transparent, transparent 6px, var(--primary) 6px, var(--primary) 8px);
-    top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 19px 20px;
 }
 
 #navtitle {
-    font-size: 1.1rem;
-    margin: 0;
-    background: var(--primary);
-    height: 100%;
-    color: var(--bg);
-    padding: 6px 6px;
-    font-weight: 600;
+  display: flex;
+  flex: 1;
 }
+
+#navtitle::after {
+  content: "";
+  background: repeating-linear-gradient(90deg, var(--primary), var(--primary) 2px, transparent 0, transparent 10px);
+  display: block;
+  width: 100%;
+  right: 10px;
+}
+
+#navtitle a {
+    height: 28px;
+  flex: 0 0 auto;
+  max-width: 100%;
+  text-decoration: none;
+  font-size: calc(1.7rem / 1.5);
+  line-height: 1.54rem;
+}
+
+#navtitle a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  background: var(--primary);
+  color: var(--background);
+  font-weight: bold;
+  padding: 5px 10px;
+}
+
 
 #navigation-box {
     display: none;
@@ -91,13 +107,14 @@ button:hover {
 }
 
 #breadcrumbs {
-    margin: 0 32px;
-    font-size: 0.9rem;
+    margin: 32px 32px;
+    font-size: calc(1.7rem / 1.5);
     padding-bottom: 8px;
     color: var(--primary);
     display: flex;
     flex-direction: row;
 }
+
 
 #breadcrumbs a {
     color: var(--primary);
@@ -121,16 +138,10 @@ button:hover {
 }
 
 #navgitbtn {
-    padding: 5px 12px;
+    padding: 7px 12px;
+    height: 100%;
 }
 
-
-
-
-
-@media (width<1175px) {
-
-}
 
 @media (width<500px) {
     #error-desc {
@@ -138,14 +149,6 @@ button:hover {
     }
 }
 
-@media (width<530px) {
-
-    #navbar {
-        width: calc(100% - 44px);
-        margin: 22px 22px;
-    }
-
-}
 
 @media (width<600px) {
     #container {

@@ -29,9 +29,10 @@
 }
 
 .community-name {
-	font-size: 2.4rem;
+	font-size: 2.2rem;
 	margin-top: 22px;
 	color: var(--primary);
+    font-family: "Fira Code", monospace;
 	max-width: 380px;
 }
 
@@ -55,9 +56,11 @@
 .logo-img {
 	padding: 3px;
 	height: 32px;
+	min-width: 32px;
 	/* filter: grayscale(100%); */
 	/* border: #acacac 2px solid; */
 	border-radius: 8px;
+	background-color: rgb(70, 70, 70);
 }
 
 .event-time {

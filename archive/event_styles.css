@@ -63,6 +63,7 @@
 	font-size: 1.4rem;
 	margin-top: 12px;
 	color: var(--primary);
+    font-family: "Fira Code", monospace;
 	max-width: 380px;
 }
 
