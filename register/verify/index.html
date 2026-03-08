@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Verify OTP</title>
+		<link rel="stylesheet" href="./style.css" />
+	</head>
+	<body>
+		<!-- NAVBAR -->
+		<nav id="navbar">
+			<div id="navtitle">
+				<a href="/">sudoers</a>
+			</div>
+			<a href="https://github.com/Tharun-Kumar-A-01/FOSSTamilan"
+				><button id="navgitbtn">Contribute</button></a
+			>
+		</nav>
+		<div id="breadcrumbs"><a href="../">../</a></div>
+
+		<!-- HERO SECTION  -->
+		<section class="hero section">
+			<h1 id="hero-title">
+				Verify <span style="color: var(--primary)">OTP</span>
+			</h1>
+			<p>
+				Enter the 6-digit OTP sent to
+				<strong id="emailDisplay"></strong>
+			</p>
+		</section>
+		<div id="form-container">
+			<div id="message" style="display: none;"></div>
+
+			<div id="otpContainer">
+				<input
+					type="text"
+					class="otp-box"
+					maxlength="1"
+					data-index="0"
+					inputmode="numeric"
+					autofocus
+				/>
+				<input
+					type="text"
+					class="otp-box"
+					maxlength="1"
+					data-index="1"
+					inputmode="numeric"
+				/>
+				<input
+					type="text"
+					class="otp-box"
+					maxlength="1"
+					data-index="2"
+					inputmode="numeric"
+				/>
+				<input
+					type="text"
+					class="otp-box"
+					maxlength="1"
+					data-index="3"
+					inputmode="numeric"
+				/>
+				<input
+					type="text"
+					class="otp-box"
+					maxlength="1"
+					data-index="4"
+					inputmode="numeric"
+				/>
+				<input
+					type="text"
+					class="otp-box"
+					maxlength="1"
+					data-index="5"
+					inputmode="numeric"
+				/>
+			</div>
+			<br />
+
+			<button id="verifyBtn">Verify OTP</button>
+			<div style="display: flex;flex-direction: column; gap: 32px; margin-top: 48px;">
+			<button id="resendBtn" disabled>Resend OTP (60)</button>
+			<a href="../">Back to Registration</a>
+			</div>
+		</div>
+
+		<script type="module">
+			import { API_BASE } from "../../config.js";
+
+			const token = sessionStorage.getItem("otp_token");
+			const email = sessionStorage.getItem("otp_email");
+			const RESEND_COOLDOWN = 60; // seconds
+
+			if (!token) {
+				document.getElementById("message").textContent =
+					"No token found. Please register an event first.";
+			}
+
+			document.getElementById("emailDisplay").textContent =
+				email || "your email";
+
+			const boxes = document.querySelectorAll(".otp-box");
+			const resendBtn = document.getElementById("resendBtn");
+	
+	        // --- Resend OTP cooldown timer ---
+	        let resendTimer = null;
+	
+	        function startResendCooldown() {
+	            let seconds = RESEND_COOLDOWN;
+	            resendBtn.disabled = true;
+	            resendBtn.textContent = "Resend OTP (" + seconds + ")";
+	            resendTimer = setInterval(function () {
+	                seconds--;
+	                if (seconds <= 0) {
+	                    clearInterval(resendTimer);
+	                    resendBtn.disabled = false;
+	                    resendBtn.textContent = "Resend OTP";
+	                } else {
+	                    resendBtn.textContent = "Resend OTP (" + seconds + ")";
+	                }
+	            }, 1000);
+	        }
+	
+	        // Start cooldown on page load (OTP was just sent)
+	        startResendCooldown();
+	
+	        // --- Resend OTP click handler ---
+	        resendBtn.addEventListener("click", async function () {
+	            const messageDiv = document.getElementById("message");
+	            messageDiv.textContent = "";
+	
+	            if (!token) {
+	                messageDiv.textContent = "No token found. Please register an event first.";
+	                return;
+	            }
+	
+	            resendBtn.disabled = true;
+	            resendBtn.textContent = "Sending...";
+	
+	            try {
+	                const response = await fetch(API_BASE + "/resendotp", {
+	                    method: "POST",
+	                    headers: {
+	                        "Authorization": "Bearer " + token,
+	                    },
+	                });
+	
+	                const data = await response.json();
+	
+	                if (!response.ok) {
+	                    messageDiv.textContent = "Error: " + (data.detail || "Failed to resend OTP");
+	                    resendBtn.disabled = false;
+	                    resendBtn.textContent = "Resend OTP";
+	                    return;
+	                }
+	
+	                let msg = data.message || "OTP resent successfully.";
+	                if (data.resends_remaining !== undefined) {
+	                    msg += " (" + data.resends_remaining + " resend" + (data.resends_remaining !== 1 ? "s" : "") + " remaining)";
+	                }
+	                messageDiv.style.borderColor = "var(--primary)";
+	                messageDiv.style.background = "#7bee5e15";
+	                messageDiv.textContent = msg;
+	
+	                // Reset message style after 5 seconds
+	                setTimeout(function () {
+	                    messageDiv.style.borderColor = "";
+	                    messageDiv.style.background = "";
+	                }, 5000);
+	
+	                // Restart cooldown
+	                startResendCooldown();
+	
+	            } catch (err) {
+	                messageDiv.textContent = "Network error: " + err.message;
+	                resendBtn.disabled = false;
+	                resendBtn.textContent = "Resend OTP";
+	            }
+	        });
+
+			// Auto-focus next box on input
+			boxes.forEach(function (box, index) {
+				box.addEventListener("input", function () {
+					const val = box.value;
+					// Allow only digits
+					if (!/^\d$/.test(val)) {
+						box.value = "";
+						return;
+					}
+					// Move to next box
+					if (index < 5) {
+						boxes[index + 1].focus();
+					}
+				});
+
+				// Handle backspace to go to previous box
+				box.addEventListener("keydown", function (e) {
+					if (
+						e.key === "Backspace" &&
+						box.value === "" &&
+						index > 0
+					) {
+						boxes[index - 1].focus();
+						boxes[index - 1].value = "";
+					}
+				});
+			});
+
+			// Handle paste: distribute digits across boxes
+			boxes[0].addEventListener("paste", function (e) {
+				e.preventDefault();
+				const pasted = (e.clipboardData || window.clipboardData)
+					.getData("text")
+					.trim();
+				const digits = pasted.replace(/\D/g, "").split("");
+				for (let i = 0; i < 6 && i < digits.length; i++) {
+					boxes[i].value = digits[i];
+				}
+				// Focus the last filled box or the next empty one
+				const focusIndex = Math.min(digits.length, 5);
+				boxes[focusIndex].focus();
+			});
+
+			document
+				.getElementById("verifyBtn")
+				.addEventListener("click", async function () {
+					const messageDiv = document.getElementById("message");
+					const verifyBtn = document.getElementById("verifyBtn");
+					messageDiv.textContent = "";
+					messageDiv.style.display = "none";
+
+					// Collect OTP from all boxes
+					let otp = "";
+					boxes.forEach(function (box) {
+						otp += box.value;
+					});
+
+					if (otp.length !== 6 || !/^\d{6}$/.test(otp)) {
+						messageDiv.textContent = "Please enter all 6 digits.";
+						messageDiv.style.display = "block";
+						return;
+					}
+
+					if (!token) {
+						messageDiv.style.display = "block";
+						messageDiv.textContent =
+							"No token found. Please register an event first.";
+						return;
+					}
+
+					verifyBtn.disabled = true;
+					verifyBtn.textContent = "Verifying...";
+
+					try {
+						const response = await fetch(API_BASE + "/verifyotp", {
+							method: "POST",
+							headers: {
+								"Content-Type": "application/json",
+								Authorization: "Bearer " + token,
+							},
+							body: JSON.stringify({ otp: otp }),
+						});
+
+						const data = await response.json();
+
+						if (!response.ok) {
+							messageDiv.style.display = "block";
+							messageDiv.textContent =
+								"Error: " +
+								(data.detail || "Verification failed");
+							verifyBtn.disabled = false;
+							verifyBtn.textContent = "Verify OTP";
+							return;
+						}
+
+						messageDiv.style.display = "block";
+						messageDiv.textContent =
+							data.message ||
+							"Verified successfully! Your event is pending admin approval.";
+						
+						verifyBtn.disabled = true;
+						verifyBtn.textContent = "Verified";
+
+						// Clear session data
+						sessionStorage.removeItem("otp_token");
+						sessionStorage.removeItem("otp_email");
+					} catch (err) {
+						messageDiv.style.display = "block";
+						messageDiv.textContent =
+							"Network error: " + err.message;
+						verifyBtn.disabled = false;
+						verifyBtn.textContent = "Verify OTP";
+					}
+				});
+		</script>
+		
+		<style>
+			@font-face {
+				font-family: 'Fira Code';
+				src: url('../../fonts/Fira_Code/FiraCode_Regular.woff2') format('woff2-variations');
+				font-display: swap;
+			}
+					 /* Ioskeley Mono - Regular */
+			@font-face {
+				font-family: 'Ioskeley Mono';
+				font-style: normal;
+				font-weight: 400;
+				font-display: swap;
+				src: url("../../fonts/Ioskeley_Mono/IoskeleyMono_Regular.woff2") format('woff2');
+			}
+
+			/* Ioskeley Mono - Bold */
+			@font-face {
+				font-family: 'Ioskeley Mono';
+				font-style: normal;
+				font-weight: 700;
+				font-display: swap;
+				src: url("../../fonts/Ioskeley_Mono/IoskeleyMono_Bold.woff2") format('woff2');
+			}
+
+			/* Ioskeley Mono - ExtraBold */
+			@font-face {
+				font-family: 'Ioskeley Mono';
+				font-style: normal;
+				font-weight: 800;
+				font-display: swap;
+				src: url("../../fonts/Ioskeley_Mono/IoskeleyMono_ExtraBold.woff2") format('woff2');
+			}
+
+			/* Ioskeley Mono - MediumItalic */
+			@font-face {
+				font-family: 'Ioskeley Mono';
+				font-style: italic;
+				font-weight: 500;
+				font-display: swap;
+				src: url("../../fonts/Ioskeley_Mono/IoskeleyMono_MediumItalic.woff2") format('woff2');
+			}
+
+			/* Ioskeley Mono - BoldItalic */
+			@font-face {
+				font-family: 'Ioskeley Mono';
+				font-style: italic;
+				font-weight: 700;
+				font-display: swap;
+				src: url("../../fonts/Ioskeley_Mono/IoskeleyMono_BoldItalic.woff2") format('woff2');
+			}
+
+			/* Ioskeley Mono - ExtraBoldItalic */
+			@font-face {
+				font-family: 'Ioskeley Mono';
+				font-style: italic;
+				font-weight: 800;
+				font-display: swap;
+				src: url("../../fonts/Ioskeley_Mono/IoskeleyMono_ExtraBoldItalic.woff2") format('woff2');
+			}
+		</style>
+	</body>
+</html>

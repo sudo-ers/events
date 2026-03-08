@@ -1,0 +1,179 @@
+.events {
+	min-height: fit-content;
+	padding-bottom: 3rem;
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+h2 {
+    font-family: "Fira Code",monospace;
+	font-size: 2.4rem;
+	text-transform: uppercase;
+	padding-left: 46px;
+	padding-top: 80px;
+}
+
+#pending-events,
+#approved-events{
+	max-width: 1495px;
+	width: 88%;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(430px, 430px));
+	gap: 24px;
+	/*justify-content: center;*/
+}
+
+.event-card {
+	width: 380px;
+	min-height: 260px;
+	border: #444444 2px solid;
+	padding: 22px;
+	padding-bottom: 48px;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: start;
+	background: var(--bg);
+}
+
+.event-card:hover {
+	border-color: #6b6b6b;
+}
+
+.external-icon {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+}
+
+.event-community {
+	background: #242424;
+	color: var(--primary);
+	font-size: 1rem;
+	width: fit-content;
+	padding: 3px 12px;
+	margin-top: 0;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	max-width: 80%;
+	border-left: var(--primary) 2px solid;
+	text-wrap: nowrap;
+}
+
+.event-title {
+	font-size: 1.4rem;
+	margin-top: 12px;
+	color: var(--primary);
+    font-family: "Fira Code", monospace;
+	max-width: 380px;
+}
+
+.event-info {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 16px;
+}
+
+.event-location {
+	background: #7bee5e28;
+	padding: 3px 6px;
+	width: fit-content;
+	font-size: 1rem;
+	display: flex;
+	align-items: center;
+	margin: 0;
+}
+
+.event-date,
+.event-time {
+	background: #272727;
+	padding: 3px 6px;
+	width: fit-content;
+	font-size: 1.1rem;
+	display: flex;
+	align-items: center;
+	margin: 0;
+}
+
+
+#date-icon,
+#time-icon {
+	flex-shrink: 0;
+	padding-right: 12px;
+}
+
+#location-info {
+	display: flex;
+	margin-top: 32px;
+}
+
+#location-icon {
+	flex-shrink: 0;
+	padding-right: 12px;
+	padding-left: 6px;
+}
+
+.location {
+	font-size: 1rem;
+	display: -webkit-box;
+	line-clamp: 4;
+	-webkit-line-clamp: 4;
+	-webkit-box-orient: vertical;
+	-moz-box-orient: vertical;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	margin: 0;
+}
+#options-btn-group {
+    position: absolute;
+    bottom: 4px;
+    width: 100%;
+    left: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 4;
+    gap:6px;
+}
+
+#approve-btn,#delete-btn {
+    border: none;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap:6px;
+}
+
+#approve-btn svg, #delete-btn svg {
+    margin-bottom: 3px;
+}
+
+#delete-btn {
+    color: #e23838;
+}
+@media (width<512px) {
+
+	.event-card {
+		width: 80%;
+	}
+	#main-container{
+        padding-left: 0;
+	}
+	#pending-events,
+	#approved-events {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		flex-direction: column;
+		padding: 0;
+	}
+	h2 {
+	font-size: 1.9rem;
+	}
+}

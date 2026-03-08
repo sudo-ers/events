@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login</title>
+    <link rel="stylesheet" href="./style.css"/>
+    
+</head>
+<body>
+    <!-- NAVBAR -->
+	<nav id="navbar">
+		<div id="navtitle">
+			<a href="/">sudoers</a>
+		</div>
+		<a href="https://github.com/Tharun-Kumar-A-01/FOSSTamilan"><button id="navgitbtn">Contribute</button></a>
+	</nav>
+	<div id="breadcrumbs">~/<a href="../../">sudoers</a>/<a href="../">events</a>/<p>admin</p></div>
+   
+	<!-- HERO SECTION  -->
+	<section class="hero section">
+			<h1 id="hero-title">Login as <br><span style="color: var(--primary);">sudoer</span></h1>
+	</section>
+<div id="form-container">
+    
+    <div id="message" style="display:none;"></div>
+
+    <form id="loginForm">
+        <div>
+            <label for="username">Username</label><br>
+            <input type="text" id="username" name="username" required>
+        </div>
+        <br>
+
+        <div>
+            <label for="password">Password</label><br>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <br>
+
+        <button type="submit" id="loginBtn">Login</button>
+    </form>
+</div>
+
+    <script type="module">
+        import { API_BASE } from "../config.js";
+    
+        // If already logged in, redirect to admin panel
+        if (sessionStorage.getItem("admin_token")) {
+            window.location.href = "../admin/";
+        }
+
+        document.getElementById("loginForm").addEventListener("submit", async function (e) {
+            e.preventDefault();
+
+            const messageDiv = document.getElementById("message");
+            const loginBtn = document.getElementById("loginBtn");
+            messageDiv.textContent = "";
+            messageDiv.style.display = "none";
+            const payload = {
+                username: document.getElementById("username").value,
+                password: document.getElementById("password").value,
+            };
+
+            loginBtn.disabled = true;
+            loginBtn.textContent = "Logging in...";
+
+            try {
+                const response = await fetch(API_BASE + "/admin/login", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(payload),
+                });
+
+                const data = await response.json();
+
+                if (!response.ok) {
+                    messageDiv.textContent = "Error: " + (data.detail || "Login failed");
+                    messageDiv.style.display = "block";
+                    loginBtn.disabled = false;
+                    loginBtn.textContent = "Login";
+                    return;
+                }
+
+                sessionStorage.setItem("admin_token", data.token);
+                window.location.href = "../admin/";
+
+            } catch (err) {
+                messageDiv.textContent = "Network error: " + err.message;
+                messageDiv.style.display = "block";
+                loginBtn.disabled = false;
+                loginBtn.textContent = "Login";
+            }
+        });
+    </script>
+    
+   	<style>
+		@font-face {
+			font-family: 'Fira Code';
+			src: url('../fonts/Fira_Code/FiraCode_Regular.woff2') format('woff2-variations');
+			font-display: swap;
+		}
+				 /* Ioskeley Mono - Regular */
+		@font-face {
+			font-family: 'Ioskeley Mono';
+			font-style: normal;
+			font-weight: 400;
+			font-display: swap;
+			src: url("../fonts/Ioskeley_Mono/IoskeleyMono_Regular.woff2") format('woff2');
+		}
+   
+		/* Ioskeley Mono - Bold */
+		@font-face {
+			font-family: 'Ioskeley Mono';
+			font-style: normal;
+			font-weight: 700;
+			font-display: swap;
+			src: url("../fonts/Ioskeley_Mono/IoskeleyMono_Bold.woff2") format('woff2');
+		}
+   
+		/* Ioskeley Mono - ExtraBold */
+		@font-face {
+			font-family: 'Ioskeley Mono';
+			font-style: normal;
+			font-weight: 800;
+			font-display: swap;
+			src: url("../fonts/Ioskeley_Mono/IoskeleyMono_ExtraBold.woff2") format('woff2');
+		}
+   
+		/* Ioskeley Mono - MediumItalic */
+		@font-face {
+			font-family: 'Ioskeley Mono';
+			font-style: italic;
+			font-weight: 500;
+			font-display: swap;
+			src: url("../fonts/Ioskeley_Mono/IoskeleyMono_MediumItalic.woff2") format('woff2');
+		}
+   
+		/* Ioskeley Mono - BoldItalic */
+		@font-face {
+			font-family: 'Ioskeley Mono';
+			font-style: italic;
+			font-weight: 700;
+			font-display: swap;
+			src: url("../fonts/Ioskeley_Mono/IoskeleyMono_BoldItalic.woff2") format('woff2');
+		}
+   
+		/* Ioskeley Mono - ExtraBoldItalic */
+		@font-face {
+			font-family: 'Ioskeley Mono';
+			font-style: italic;
+			font-weight: 800;
+			font-display: swap;
+			src: url("../fonts/Ioskeley_Mono/IoskeleyMono_ExtraBoldItalic.woff2") format('woff2');
+		}
+	</style>
+</body>
+
+</html>

@@ -12,7 +12,10 @@
 * {
     font-family: "Ioskeley Mono", monospace;
 }
-
+*:focus-visible {
+	outline: 1px solid #5dacfc;
+	outline-offset: 2px;
+}
 body {
     margin: 0;
     padding: 0;
@@ -26,18 +29,9 @@ a {
     color: var(--text);
 }
 
-#code-404 {
-    color: var(--primary);
-    font-size: 8rem;
-    margin: 0;
-}
-
 a:visited {
     color: var(--text);
     text-decoration: none;
-}
-#error-desc{
-    margin-top: 0;
 }
 
 #navbar {
@@ -79,7 +73,6 @@ a:visited {
   padding: 5px 10px;
 }
 
-
 #navigation-box {
     display: none;
 }
@@ -95,10 +88,6 @@ button {
     font-size: 1rem;
 }
 
-#go-back-btn {
-    margin-top: 10px;
-}
-
 button:hover {
     border-color: var(--primary);
     border-style: solid;
@@ -106,6 +95,11 @@ button:hover {
     text-decoration: underline;
 }
 
+
+#navgitbtn {
+    padding: 7px 12px;
+    height: 100%;
+}
 #breadcrumbs {
     margin: 32px 32px;
     font-size: calc(1.7rem / 1.5);
@@ -115,43 +109,130 @@ button:hover {
     flex-direction: row;
 }
 
-
 #breadcrumbs a {
     color: var(--primary);
 }
+
 #breadcrumbs p {
     margin: 0;
     color: var(--primary);
 }
+
 #breadcrumbs a:hover {
     text-decoration: underline;
 }
 
-
 .hero {
+	padding-top: 70px;
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	height: fit-content;
+	text-align: center;
+}
+.section {
+	width: 100%;
+	min-height: fit-content;
+}
+
+#hero-title {
+	font-size: 4.6rem;
+	height: fit-content;
+	width: 100%;
+	text-align: center;
+    font-family: "Fira Code", monospace;
+	padding: 0;
+	margin-bottom: 0;
+}
+
+#hero-title span {
+    font-family: "Fira Code", monospace;
+}
+a{
+    color: var(--primary);
+    text-decoration: underline;
+}
+#form-container {
+    width: 100%;
     display: flex;
-    flex-direction: column;
-    width: calc(100% - 4rem);
     align-items: center;
     justify-content: center;
-    height: 80vh;
+    flex-direction: column;
+    gap:16px;
+}
+#message {
+    width:80%;
+    max-width:360px;
+    padding: 12px;
+    background: #e2383823;
+    border: 1px solid #e23838;
+    margin: 12px 0px;
+}
+#eventForm {
+    width:80%;
+    max-width:360px;
+}
+form div{
+    position: relative;
+}
+input{
+    background: transparent;
+    border: 1px solid #4a4a4a;
+    color: white;
+    padding: 8px;
+    font-size: 1rem;
+    width: 100%;
+    text-align: center;
 }
 
-#navgitbtn {
-    padding: 7px 12px;
-    height: 100%;
+input:user-invalid {
+    border:1px solid #e23838;
 }
 
-
-@media (width<500px) {
-    #error-desc {
-        font-size: 0.92rem;
-    }
+.otp-box{
+    width: 1rem;
 }
 
+input::placeholder {
+    color: var(--disabled);
+}
+input:focus-visible{
+    outline: none;
+    border-color:var(--primary);
+}
+input:focus-visible & label {
+    color: var(--primary);
+}
+label {
+    font-size: 0.9rem;
+    position: absolute;
+    top: 12px;
+    left: 8px;
+    background: var(--background);
+    color: var(--disabled);
+}
+@media(width<620px){
 
-@media (width<600px) {
-    #container {
-        padding-left: 10%
-    }
+}
+
+@media (width<865px) {
+	#hero-title {
+		font-size: 4.2rem;
+	}
+	
+	#navpath{
+		display:none;
+	}
+}
+
+@media (width<450px) {
+    #hero-title {
+		font-size: 3.2rem;
+	}
+}
+
+@media (width<347px) {
+    #hero-title {
+		font-size: 2.6rem;
+	}
 }

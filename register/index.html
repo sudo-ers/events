@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Event</title>
+    <link rel="stylesheet" href="./style.css"/>
+    
+</head>
+<body>
+    <!-- NAVBAR -->
+	<nav id="navbar">
+		<div id="navtitle">
+			<a href="/">sudoers</a>
+		</div>
+		<a href="https://github.com/Tharun-Kumar-A-01/FOSSTamilan"><button id="navgitbtn">Contribute</button></a>
+	</nav>
+	<div id="breadcrumbs">~/<a href="../../">sudoers</a>/<a href="../">events</a>/<p>register</p></div>
+   
+	<!-- HERO SECTION  -->
+	<section class="hero section">
+			<h1 id="hero-title">Register a <br><span style="color: var(--primary);">Tech Event</span></h1>
+	</section>
+
+<div id="form-container">
+    
+    <form id="eventForm" method="dialog">
+        <div>
+            <label for="eventName">Event Name<span id="req">*</span></label><br>
+            <input type="text" id="eventName" name="eventName" required>
+        </div>
+        <br>
+
+        <div>
+            <label for="eventDescription">Event Description<span id="req">*</span></label><br>
+            <textarea id="eventDescription" name="eventDescription" rows="4" required></textarea>
+        </div>
+        <br>
+
+        <div>
+            <label for="eventDate">Event Date<span id="req">*</span></label><br>
+            <input type="date" id="eventDate" name="eventDate" required>
+        </div>
+        <br>
+
+        <div>
+            <label for="eventTime">Event Time<span id="req">*</span></label><br>
+            <input type="time" id="eventTime" name="eventTime" required>
+        </div>
+        <br>
+
+        <div>
+            <label for="eventVenue">Event Venue<span id="req">*</span></label><br>
+            <input type="text" id="eventVenue" name="eventVenue" required>
+        </div>
+        <br>
+
+        <div>
+            <label for="eventLink">Event Link<span id="req">*</span></label><br>
+            <input type="url" id="eventLink" name="eventLink" placeholder="https://example.com/event" required>
+        </div>
+        <br>
+
+        <div>
+            <label for="location">Location<span id="req">*</span></label><br>
+            <input type="text" id="location" name="location" required>
+        </div>
+        <br>
+
+        <div>
+            <label for="communityName">Community Name<span id="req">*</span></label><br>
+            <input type="text" id="communityName" name="communityName" required>
+        </div>
+        <br>
+
+        <div>
+            <label for="email">Email<span id="req">*</span></label><br>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <br>
+        <div id="message" style="display: none;"></div>
+        <button type="submit" id="submitBtn">Submit Event</button>
+    </form>
+</div>
+
+    <script type="module">
+        import { API_BASE } from "../config.js";
+
+        document.getElementById("eventForm").addEventListener("submit", async function (e) {
+            e.preventDefault();
+
+            const messageDiv = document.getElementById("message");
+            const submitBtn = document.getElementById("submitBtn");
+            messageDiv.style.display = "none";
+            messageDiv.textContent = "";
+
+            const timeValue = document.getElementById("eventTime").value;
+            const formattedTime = timeValue.length === 5 ? timeValue + ":00" : timeValue;
+
+            const payload = {
+                eventName: document.getElementById("eventName").value,
+                eventDescription: document.getElementById("eventDescription").value,
+                eventDate: document.getElementById("eventDate").value,
+                eventTime: formattedTime,
+                eventVenue: document.getElementById("eventVenue").value,
+                eventLink: document.getElementById("eventLink").value,
+                location: document.getElementById("location").value,
+                communityName: document.getElementById("communityName").value,
+                email: document.getElementById("email").value,
+            };
+
+            submitBtn.disabled = true;
+            submitBtn.textContent = "Submitting...";
+
+            try {
+                const response = await fetch(API_BASE + "/events", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(payload),
+                });
+
+                const data = await response.json();
+
+                if (!response.ok) {
+                	messageDiv.style.display = "block";
+                    messageDiv.textContent = "Error: " + (data.detail || "Something went wrong");
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = "Submit Event";
+                    // return;
+                }
+                else {
+                	// Store token and redirect to OTP page
+                	sessionStorage.setItem("otp_token", data.token);
+                	sessionStorage.setItem("otp_email", payload.email);
+                	window.location.href = "./verify/";
+                }
+
+            } catch (err) {
+            	messageDiv.style.display = "block";
+                messageDiv.textContent = "Network error: " + err.message;
+                submitBtn.disabled = false;
+                // window.location.href = "./verify/";
+                submitBtn.textContent = "Submit Event";
+            }
+        });
+    </script>
+    
+   	<style>
+		@font-face {
+			font-family: 'Fira Code';
+			src: url('../fonts/Fira_Code/FiraCode_Regular.woff2') format('woff2-variations');
+			font-display: swap;
+		}
+				 /* Ioskeley Mono - Regular */
+		@font-face {
+			font-family: 'Ioskeley Mono';
+			font-style: normal;
+			font-weight: 400;
+			font-display: swap;
+			src: url("../fonts/Ioskeley_Mono/IoskeleyMono_Regular.woff2") format('woff2');
+		}
+   
+		/* Ioskeley Mono - Bold */
+		@font-face {
+			font-family: 'Ioskeley Mono';
+			font-style: normal;
+			font-weight: 700;
+			font-display: swap;
+			src: url("../fonts/Ioskeley_Mono/IoskeleyMono_Bold.woff2") format('woff2');
+		}
+   
+		/* Ioskeley Mono - ExtraBold */
+		@font-face {
+			font-family: 'Ioskeley Mono';
+			font-style: normal;
+			font-weight: 800;
+			font-display: swap;
+			src: url("../fonts/Ioskeley_Mono/IoskeleyMono_ExtraBold.woff2") format('woff2');
+		}
+   
+		/* Ioskeley Mono - MediumItalic */
+		@font-face {
+			font-family: 'Ioskeley Mono';
+			font-style: italic;
+			font-weight: 500;
+			font-display: swap;
+			src: url("../fonts/Ioskeley_Mono/IoskeleyMono_MediumItalic.woff2") format('woff2');
+		}
+   
+		/* Ioskeley Mono - BoldItalic */
+		@font-face {
+			font-family: 'Ioskeley Mono';
+			font-style: italic;
+			font-weight: 700;
+			font-display: swap;
+			src: url("../fonts/Ioskeley_Mono/IoskeleyMono_BoldItalic.woff2") format('woff2');
+		}
+   
+		/* Ioskeley Mono - ExtraBoldItalic */
+		@font-face {
+			font-family: 'Ioskeley Mono';
+			font-style: italic;
+			font-weight: 800;
+			font-display: swap;
+			src: url("../fonts/Ioskeley_Mono/IoskeleyMono_ExtraBoldItalic.woff2") format('woff2');
+		}
+	</style>
+	
+</body>
+</html>

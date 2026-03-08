@@ -4,7 +4,6 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>404 - Not Found</title>
-	<link rel="stylesheet" href="404.css">
 </head>
 <body>
 	<nav id="navbar">
@@ -30,6 +29,167 @@
 		document.getElementById('404-path').textContent = path.slice(7);
 		document.getElementById('url-path').textContent = path.slice(7);
 	</script>
+	
+	<style>
+		:root {
+		    --primary: #7bee5e;
+		    --secondary: #77ca62;
+		    --foreground: #eceae5d8;
+		    --background: #131313;
+		    --fg: var(--foreground);
+		    --bg: var(--background);
+		    --text: var(--foreground);
+		    --disabled: #4b4b4b;
+		}
+		
+		* {
+		    font-family: "Ioskeley Mono", monospace;
+		}
+		
+		body {
+		    margin: 0;
+		    padding: 0;
+		    background: var(--bg);
+		    color: var(--text);
+		    font-family: "Ioskeley Mono", monospace;
+		}
+		
+		a {
+		    text-decoration: none;
+		    color: var(--text);
+		}
+		
+		#code-404 {
+		    color: var(--primary);
+		    font-size: 8rem;
+		    margin: 0;
+		}
+		
+		a:visited {
+		    color: var(--text);
+		    text-decoration: none;
+		}
+		#error-desc{
+		    margin-top: 0;
+		}
+		
+		#navbar {
+		  display: flex;
+		  align-items: center;
+		  justify-content: space-between;
+		  margin: 19px 20px;
+		}
+		
+		#navtitle {
+		  display: flex;
+		  flex: 1;
+		}
+		
+		#navtitle::after {
+		  content: "";
+		  background: repeating-linear-gradient(90deg, var(--primary), var(--primary) 2px, transparent 0, transparent 10px);
+		  display: block;
+		  width: 100%;
+		  right: 10px;
+		}
+		
+		#navtitle a {
+		    height: 28px;
+		  flex: 0 0 auto;
+		  max-width: 100%;
+		  text-decoration: none;
+		  font-size: calc(1.7rem / 1.5);
+		  line-height: 1.54rem;
+		}
+		
+		#navtitle a {
+		  display: flex;
+		  align-items: center;
+		  text-decoration: none;
+		  background: var(--primary);
+		  color: var(--background);
+		  font-weight: bold;
+		  padding: 5px 10px;
+		}
+		
+		
+		#navigation-box {
+		    display: none;
+		}
+		
+		button {
+		    height: fit-content;
+		    padding: 8px 18px;
+		    background-color: var(--bg);
+		    color: var(--primary);
+		    border: var(--primary) 2px solid;
+		    cursor: pointer;
+		    text-transform: uppercase;
+		    font-size: 1rem;
+		}
+		
+		#go-back-btn {
+		    margin-top: 10px;
+		}
+		
+		button:hover {
+		    border-color: var(--primary);
+		    border-style: solid;
+		    color: var(--primary);
+		    text-decoration: underline;
+		}
+		
+		#breadcrumbs {
+		    margin: 32px 32px;
+		    font-size: calc(1.7rem / 1.5);
+		    padding-bottom: 8px;
+		    color: var(--primary);
+		    display: flex;
+		    flex-direction: row;
+		}
+		
+		
+		#breadcrumbs a {
+		    color: var(--primary);
+		}
+		#breadcrumbs p {
+		    margin: 0;
+		    color: var(--primary);
+		}
+		#breadcrumbs a:hover {
+		    text-decoration: underline;
+		}
+		
+		
+		.hero {
+		    display: flex;
+		    flex-direction: column;
+		    width: calc(100% - 4rem);
+		    align-items: center;
+		    justify-content: center;
+		    height: 80vh;
+		}
+		
+		#navgitbtn {
+		    padding: 7px 12px;
+		    height: 100%;
+		}
+		
+		
+		@media (width<500px) {
+		    #error-desc {
+		        font-size: 0.92rem;
+		    }
+		}
+		
+		
+		@media (width<600px) {
+		    #container {
+		        padding-left: 10%
+		    }
+		}
+
+	</style>
 	
 	<style>
 		@font-face {

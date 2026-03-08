@@ -267,7 +267,7 @@ button:hover {
 @media (width<700px) {
 
     #left-side {
-    background-size: 100%;
+    	background-size: 80%;
         /* padding-left: 1.5rem; */
     }
 
@@ -309,8 +309,11 @@ button:hover {
     }
 }
 
-@media (width<530px) {
-
+@media (width<610px) {
+	#left-side {
+    background-size: 100%;
+        /* padding-left: 1.5rem; */
+    }
     #thirukkural {
         font-size: 1rem;
     }

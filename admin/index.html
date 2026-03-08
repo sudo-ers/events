@@ -1,34 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Events Archive</title>
-	<link rel="stylesheet" href="style.css">
-	<link rel="stylesheet" href="event_styles.css">
-	<script type="module" src="script.js" defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="./style.css"/>
+    <link rel="stylesheet" href="./event_styles.css"/>
+    <script type="module" src="./script.js" defer></script>
 </head>
 <body>
+    <!-- NAVBAR -->
 	<nav id="navbar">
 		<div id="navtitle">
 			<a href="/">sudoers</a>
 		</div>
 		<a href="https://github.com/Tharun-Kumar-A-01/FOSSTamilan"><button id="navgitbtn">Contribute</button></a>
 	</nav>
-	<div id="breadcrumbs">~/<a href="../../">sudoers</a>/<a href="../">events</a>/<p>archive</p></div>
-
+	<div id="breadcrumbs">~/<a href="../../">sudoers</a>/<a href="../">events</a>/<p>admin</p></div>
+   
 	<!-- HERO SECTION  -->
-	<section class="hero section">
-			<h1 id="hero-title">Past Events <span style="color: var(--primary);">Archive</span></h1>
-	</section>
+	<div id="main-container">
+	
+    <div id="message" style="display: none;"></div>
 
-	<section class="events section">
-		<div id="past-events">
+    <h2>Pending Events</h2>
+    <section class="events section">
+		<div id="pending-events">
 			<p>Loading...</p>
 		</div>
 	</section>
+	
+	<h2>Approved Events</h2>
+	<section class="events section">
+        <div id="approved-events">
+            <p>Loading...</p>
+        </div>
+    </section>
+	</div>
 
-	<style>
+    <button id="logoutBtn">Logout</button>
+    
+   	<style>
 		@font-face {
 			font-family: 'Fira Code';
 			src: url('../fonts/Fira_Code/FiraCode_Regular.woff2') format('woff2-variations');
@@ -42,7 +55,7 @@
 			font-display: swap;
 			src: url("../fonts/Ioskeley_Mono/IoskeleyMono_Regular.woff2") format('woff2');
 		}
-
+   
 		/* Ioskeley Mono - Bold */
 		@font-face {
 			font-family: 'Ioskeley Mono';
@@ -51,7 +64,7 @@
 			font-display: swap;
 			src: url("../fonts/Ioskeley_Mono/IoskeleyMono_Bold.woff2") format('woff2');
 		}
-
+   
 		/* Ioskeley Mono - ExtraBold */
 		@font-face {
 			font-family: 'Ioskeley Mono';
@@ -60,7 +73,7 @@
 			font-display: swap;
 			src: url("../fonts/Ioskeley_Mono/IoskeleyMono_ExtraBold.woff2") format('woff2');
 		}
-
+   
 		/* Ioskeley Mono - MediumItalic */
 		@font-face {
 			font-family: 'Ioskeley Mono';
@@ -69,7 +82,7 @@
 			font-display: swap;
 			src: url("../fonts/Ioskeley_Mono/IoskeleyMono_MediumItalic.woff2") format('woff2');
 		}
-
+   
 		/* Ioskeley Mono - BoldItalic */
 		@font-face {
 			font-family: 'Ioskeley Mono';
@@ -78,7 +91,7 @@
 			font-display: swap;
 			src: url("../fonts/Ioskeley_Mono/IoskeleyMono_BoldItalic.woff2") format('woff2');
 		}
-
+   
 		/* Ioskeley Mono - ExtraBoldItalic */
 		@font-face {
 			font-family: 'Ioskeley Mono';
@@ -89,4 +102,5 @@
 		}
 	</style>
 </body>
+
 </html>

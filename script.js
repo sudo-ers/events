@@ -1,3 +1,5 @@
+import { API_BASE } from "./config.js";
+
 // container elements where rendered data will be inserted
 let this_month_events_section = document.getElementById("this-month-events");
 let upcoming_events_section = document.getElementById("upcoming-events");
@@ -142,7 +144,11 @@ async function run() {
 	events = await response.json();
 
 	console.log(events);
-
+	const registered_events_response = await fetch(API_BASE+"/events");
+	let registered_events = await registered_events_response.json();
+	
+	events.push(...registered_events);
+	
 	// this fetches past events from a different json
 	const past_events_response = await fetch("https://raw.githubusercontent.com/FOSSUChennai/Communities/refs/heads/main/src/data/pastevents.json");
 	let past_events = await past_events_response.json();
