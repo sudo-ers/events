@@ -71,7 +71,7 @@ async function run() {
 		return B - A;
 	});
 
-	rendered = "";
+	let rendered = "";
 	if (past_events.length === 0) {
 		rendered = "<h1>Memory Corrupt! No history available</h1>";
 	} else {
