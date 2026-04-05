@@ -18,58 +18,36 @@
 .community-card {
 	width: 380px;
 	min-height: 260px;
-	border: #444444 2px solid;
+	border: 1px solid var(--background-200);
 	padding: 22px;
 	position: relative;
 	background: var(--bg);
 }
 
 .community-card:hover {
-	border-color: #6b6b6b;
+	border-color: var(--background-400);
 }
 
-.community-name {
-	font-size: 2.2rem;
-	margin-top: 22px;
-	color: var(--primary);
-    font-family: "Fira Code", monospace;
-	max-width: 380px;
-}
-
-.img-and-location {
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-}
-
-.location {
-	background: #7bee5e28;
-	padding: 6px 12px;
+.community-logo {
 	width: fit-content;
-	font-size: 1.2rem;
-	display: flex;
-	align-items: center;
-	gap: 6px;
-	margin: 0;
+	max-width: 60%;
+	height: 32px;
 }
 
 .logo-img {
-	padding: 3px;
 	height: 32px;
 	min-width: 32px;
 	/* filter: grayscale(100%); */
 	/* border: #acacac 2px solid; */
-	border-radius: 8px;
-	background-color: rgb(70, 70, 70);
+	background: var(--background-200);
+	padding: 4px;
+	max-width: 100%;
 }
 
-.event-time {
-	background: #272727;
-	padding: 3px 6px;
-	width: fit-content;
-	font-size: 1.2rem;
-	display: flex;
-	align-items: center;
+.logo-img.default {
+	padding: 4px;
+	background: transparent;
+
 }
 
 .link-box {
@@ -79,11 +57,10 @@
 	justify-content: center;
 	width: 40px;
 	height: 40px;
-	border: 2px solid #7bee5e28;
 }
 
 .link-box:hover{
-	background: #7bee5e41;
+	background: var(--primary-100);
 }
 
 .links-container {
@@ -94,10 +71,71 @@
 	align-content: start;
 }
 
+.community-name {
+	font-size: 1.4rem;
+	margin-top: 12px;
+	color: var(--primary);
+	font-family: "JetBrains Mono", monospace;
+	max-width: 380px;
+	min-height: 60px;
+}
+
+.event-location {
+	/* background: #7bee5e07; */
+	position: absolute;
+	top: -1px;
+	right: -1px;
+	color: var(--bg);
+	/* padding: 4px 8px; */
+	text-transform: uppercase;
+	font-weight: bold;
+	width: fit-content;
+	font-size: 1rem;
+	display: flex;
+	align-items: center;
+	margin: 0;
+}
+
+.event-location p {
+	background-color: var(--primary);
+	padding: 3px 12px 5px;
+	margin: 0;
+	border-top: 1px solid var(--primary);
+}
+
+.triangle {
+  width: 0;
+  height: 0;
+  border-left: 30px solid transparent;
+  border-bottom: 30px solid var(--primary);
+  transform: rotate(270deg);
+  position: relative;
+  top: 0px;
+  left: 0px;
+}
+
+.no-events {
+	display: flex;
+	flex-direction: column;
+	color: var(--background-600);
+	padding: 0 32px;
+	width: max-content;
+}
+
+.no-events button {
+	width: fit-content;
+}
+
+.no-events-inner {
+	display: flex;
+	gap: 16px;
+	align-items: center;
+}
+
 @media (width<512px) {
 
 	.community-card {
-		width: 80%;
+		width: 90%;
 	}
 
 	#communities-container {

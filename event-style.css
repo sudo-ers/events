@@ -8,7 +8,7 @@
 #upcoming,
 #past {
 	font-size: 2.4rem;    
-	font-family: "Fira Code", monospace;
+	font-family: "JetBrains Mono", monospace;
 	text-transform: uppercase;
 	padding-left: 46px;
 	padding-top: 80px;
@@ -35,7 +35,7 @@
 .event-card {
 	width: 380px;
 	min-height: 260px;
-	border: #444444 2px solid;
+	border: var(--background-200) 1px solid;
 	padding: 22px;
 	position: relative;
 	display: flex;
@@ -45,7 +45,8 @@
 }
 
 .event-card:hover {
-	border-color: #6b6b6b;
+	border-color: var(--background-400);
+	/*border-color: var(--primary);*/
 }
 
 .external-icon {
@@ -55,16 +56,18 @@
 }
 
 .event-community {
-	background: #242424;
-	color: var(--primary);
+	background: var(--bg);
+	color: var(--text);
 	font-size: 1rem;
+	text-transform: uppercase;
 	width: fit-content;
-	padding: 3px 12px;
+	/* padding: 3px 0px; */
 	margin-top: 0;
 	text-overflow: ellipsis;
 	overflow: hidden;
 	max-width: 80%;
-	border-left: var(--primary) 2px solid;
+	/* border-bottom: 1px solid var(--primary); */
+	/* border-left: var(--primary) 2px solid; */
 	text-wrap: nowrap;
 }
 
@@ -72,35 +75,57 @@
 	font-size: 1.4rem;
 	margin-top: 12px;
 	color: var(--primary);
-	font-family: "Fira Code", monospace;
+	font-family: "JetBrains Mono", monospace;
 	max-width: 380px;
+	min-height: 90px;
 }
 
 .event-info {
 	display: flex;
 	flex-wrap: wrap;
+	flex-direction: column;
 	gap: 16px;
 }
 
 .event-location {
-	background: #7bee5e28;
-	padding: 3px 6px;
+	/* background: #7bee5e07; */
+	position: absolute;
+	top: -1px;
+	right: -1px;
+	color: var(--bg);
+	/* padding: 4px 8px; */
+	text-transform: uppercase;
+	font-weight: bold;
 	width: fit-content;
 	font-size: 1rem;
 	display: flex;
 	align-items: center;
 	margin: 0;
 }
-
+.event-location p {
+	background-color: var(--primary);
+	padding: 3px 12px 5px;
+	margin: 0;
+	border-top: 1px solid var(--primary);
+}
 .event-date,
 .event-time {
-	background: #272727;
-	padding: 3px 6px;
 	width: fit-content;
 	font-size: 1.1rem;
 	display: flex;
 	align-items: center;
 	margin: 0;
+}
+
+.triangle {
+  width: 0;
+  height: 0;
+  border-left: 30px solid transparent;
+  border-bottom: 30px solid var(--primary);
+  transform: rotate(270deg);
+  position: relative;
+  top: 0px;
+  left: 0px;
 }
 
 .date-icon,
@@ -111,7 +136,7 @@
 
 .location-info {
 	display: flex;
-	margin-top: 32px;
+	margin-top: 16px;
 	/* height: 88px; */
 }
 
@@ -130,6 +155,24 @@
 	overflow: hidden;
 	text-overflow: ellipsis;
 	margin: 0;
+}
+
+.no-events {
+	display: flex;
+	flex-direction: column;
+	color: var(--background-600);
+	padding: 0 32px;
+	width: max-content;
+}
+
+.no-events button {
+	width: fit-content;
+}
+
+.no-events-inner {
+	display: flex;
+	gap: 16px;
+	align-items: center;
 }
 
 #past-events-gradient {

@@ -1,27 +1,195 @@
-:root {
-    --primary: #7bee5e;
-    --secondary: #77ca62;
-    --foreground: #eceae5d8;
-    --background: #131313;
-    --fg: var(--foreground);
-    --bg: var(--background);
-    --text: var(--foreground);
-    --disabled: #4b4b4b;
+@media (prefers-color-scheme: light) {
+
+	:root {
+		--foreground: #1b2419;
+		--background: #f0f0f0;
+		--primary: #148b04;
+		--secondary: #499d34;
+		--accent: #22ce6f;
+		--fg: var(--foreground);
+		--bg: var(--background);
+		--text: var(--foreground);
+		--disabled: #333333;
+		--error: #d00b0b;
+		
+		--text-50: #f1f5f0;
+		--text-100: #e3eae1;
+		--text-200: #c6d5c3;
+		--text-300: #aac0a5;
+		--text-400: #8dab87;
+		--text-500: #719669;
+		--text-600: #5a7854;
+		--text-700: #445a3f;
+		--text-800: #2d3c2a;
+		--text-900: #171e15;
+		--text-950: #0b0f0a;
+
+		--background-50: #f2f2f2;
+		--background-100: #e6e6e6;
+		--background-200: #cccccc;
+		--background-300: #b3b3b3;
+		--background-400: #999999;
+		--background-500: #808080;
+		--background-600: #666666;
+		--background-700: #4d4d4d;
+		--background-800: #333333;
+		--background-900: #1a1a1a;
+		--background-950: #0d0d0d;
+
+		--primary-50: #e9fee6;
+		--primary-100: #d3fdce;
+		--primary-200: #a7fc9c;
+		--primary-300: #7bfa6b;
+		--primary-400: #4ff939;
+		--primary-500: #24f708;
+		--primary-600: #1cc606;
+		--primary-700: #159405;
+		--primary-800: #0e6303;
+		--primary-900: #073102;
+		--primary-950: #041901;
+
+		--secondary-50: #eef9ec;
+		--secondary-100: #def2d9;
+		--secondary-200: #bde6b3;
+		--secondary-300: #9cd98c;
+		--secondary-400: #7acc66;
+		--secondary-500: #59bf40;
+		--secondary-600: #479933;
+		--secondary-700: #367326;
+		--secondary-800: #244d19;
+		--secondary-900: #12260d;
+		--secondary-950: #091306;
+
+		--accent-50: #e9fbf1;
+		--accent-100: #d3f8e4;
+		--accent-200: #a7f1c8;
+		--accent-300: #7beaad;
+		--accent-400: #50e292;
+		--accent-500: #24db76;
+		--accent-600: #1daf5f;
+		--accent-700: #158447;
+		--accent-800: #0e582f;
+		--accent-900: #072c18;
+		--accent-950: #04160c;
+
+		--error-accent-50: #fee7e7;
+		--error-accent-100: #fccfcf;
+		--error-accent-200: #fa9e9e;
+		--error-accent-300: #f76e6e;
+		--error-accent-400: #f53d3d;
+		--error-accent-500: #f20d0d;
+		--error-accent-600: #c20a0a;
+		--error-accent-700: #910808;
+		--error-accent-800: #610505;
+		--error-accent-900: #300303;
+		--error-accent-950: #180101;
+	}
+}
+
+@media (prefers-color-scheme: dark) {
+
+	:root {
+		--foreground: #dde6db;
+		--background: #0f0f0f;
+		--primary: #84fb74;
+		--secondary: #77cb62;
+		--accent: #31dd7f;
+		--fg: var(--foreground);
+		--bg: var(--background);
+		--text: var(--foreground);
+		--disabled: #4d4d4d;
+		--error: #f42f2f;
+
+		--text-50: #0b0f0a;
+		--text-100: #171e15;
+		--text-200: #2d3c2a;
+		--text-300: #445a3f;
+		--text-400: #5a7854;
+		--text-500: #719669;
+		--text-600: #8dab87;
+		--text-700: #aac0a5;
+		--text-800: #c6d5c3;
+		--text-900: #e3eae1;
+		--text-950: #f1f5f0;
+
+		--background-50: #0d0d0d;
+		--background-100: #1a1a1a;
+		--background-200: #333333;
+		--background-300: #4d4d4d;
+		--background-400: #666666;
+		--background-500: #808080;
+		--background-600: #999999;
+		--background-700: #b3b3b3;
+		--background-800: #cccccc;
+		--background-900: #e6e6e6;
+		--background-950: #f2f2f2;
+
+		--primary-50: #041901;
+		--primary-100: #073102;
+		--primary-200: #0e6303;
+		--primary-300: #159405;
+		--primary-400: #1cc606;
+		--primary-500: #24f708;
+		--primary-600: #4ff939;
+		--primary-700: #7bfa6b;
+		--primary-800: #a7fc9c;
+		--primary-900: #d3fdce;
+		--primary-950: #e9fee6;
+
+		--secondary-50: #091306;
+		--secondary-100: #12260d;
+		--secondary-200: #244d19;
+		--secondary-300: #367326;
+		--secondary-400: #479933;
+		--secondary-500: #59bf40;
+		--secondary-600: #7acc66;
+		--secondary-700: #9cd98c;
+		--secondary-800: #bde6b3;
+		--secondary-900: #def2d9;
+		--secondary-950: #eef9ec;
+
+		--accent-50: #04160c;
+		--accent-100: #072c18;
+		--accent-200: #0e582f;
+		--accent-300: #158447;
+		--accent-400: #1daf5f;
+		--accent-500: #24db76;
+		--accent-600: #50e292;
+		--accent-700: #7beaad;
+		--accent-800: #a7f1c8;
+		--accent-900: #d3f8e4;
+		--accent-950: #e9fbf1;
+
+		--error-accent-50: #180101;
+		--error-accent-100: #300303;
+		--error-accent-200: #610505;
+		--error-accent-300: #910808;
+		--error-accent-400: #c20a0a;
+		--error-accent-500: #f20d0d;
+		--error-accent-600: #f53d3d;
+		--error-accent-700: #f76e6e;
+		--error-accent-800: #fa9e9e;
+		--error-accent-900: #fccfcf;
+		--error-accent-950: #fee7e7;
+
+	}
 }
 
 * {
-    font-family: "Ioskeley Mono", monospace;
+    font-family: "JetBrains Mono", monospace;
 }
+
 *:focus-visible {
 	outline: 1px solid #5dacfc;
 	outline-offset: 2px;
 }
+
 body {
     margin: 0;
     padding: 0;
     background: var(--bg);
     color: var(--text);
-    font-family: "Ioskeley Mono", monospace;
+    font-family: "JetBrains Mono", monospace;
 }
 
 a {
@@ -38,7 +206,7 @@ a:visited {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 19px 20px;
+  margin: 20px 20px;
 }
 
 #navtitle {
@@ -82,24 +250,19 @@ button {
     padding: 8px 18px;
     background-color: var(--bg);
     color: var(--primary);
-    border: var(--primary) 2px solid;
+    border: var(--primary) 1px solid;
     cursor: pointer;
     text-transform: uppercase;
     font-size: 1rem;
+    font-weight: bold;
 }
 
 button:hover {
-    border-color: var(--primary);
+    background-color: var(--primary);
     border-style: solid;
-    color: var(--primary);
-    text-decoration: underline;
+    color: var(--bg);
 }
 
-
-#navgitbtn {
-    padding: 7px 12px;
-    height: 100%;
-}
 #breadcrumbs {
     margin: 32px 32px;
     font-size: calc(1.7rem / 1.5);
@@ -112,114 +275,143 @@ button:hover {
 #breadcrumbs a {
     color: var(--primary);
 }
-
 #breadcrumbs p {
     margin: 0;
     color: var(--primary);
 }
-
 #breadcrumbs a:hover {
     text-decoration: underline;
 }
 
+
 .hero {
-	padding-top: 70px;
-	display: flex;
-	flex-direction: row;
-	width: 100%;
-	height: fit-content;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
 }
+
+#navgitbtn {
+    padding: 7px 12px 8px;
+    height: 100%;
+}
+
+#left-side {
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    /* padding-left: 5rem; */
+    flex-direction: column;
+}
+
 .section {
-	width: 100%;
-	min-height: fit-content;
+    width: 100%;
 }
 
-#hero-title {
-	font-size: 4.6rem;
-	height: fit-content;
-	width: 100%;
-	text-align: center;
-    font-family: "Fira Code", monospace;
-	padding: 0 32px;
-}
-
-#hero-title span {
-    font-family: "Fira Code", monospace;
-}
 #form-container {
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
+	padding-bottom: 4rem;
     flex-direction: column;
 }
 #message {
     width:80%;
     max-width:360px;
     padding: 12px;
-    background: #e2383823;
-    border: 1px solid #e23838;
+	color: var(--error);
+    background: var(--error-accent-100);
+    border: 1px solid var(--error);
     margin: 12px 0px;
 }
+
 #eventForm {
     width:80%;
     max-width:360px;
 }
+
 form div{
     position: relative;
 }
+
 input{
     background: transparent;
-    border: 1px solid #4a4a4a;
-    color: white;
+    border: 1px solid var(--background-400);
+    color: var(--text);
     padding: 8px;
     font-size: 1rem;
     width: calc(100% - 18px);
 }
 
 input:user-invalid {
-    border:1px solid #e23838;
+    border:1px solid var(--error);
 }
+
 textarea:user-invalid {
-    border:1px solid #e23838;
+    border:1px solid var(--error);
 }
+
 #req {
-    color: #e23838;
+    color: var(--error);
 }
+
 textarea {
     background: transparent;
-    border: 1px solid #4a4a4a;
-    color: white;
-    padding: 6px;
+    border: 1px solid var(--background-400);
+    color: var(--text);
+    padding: 8px;
     font-size: 1rem;
     width: calc(100% - 18px);
     resize: none;
 }
+
 textarea:focus-visible{
     outline: none;
     border-color:var(--primary);    
 }
+
 input::placeholder {
-    color: var(--disabled);
+    color: var(--background-400);
 }
+
 input:focus-visible{
     outline: none;
     border-color:var(--primary);
 }
+
 input:focus-visible & label {
     color: var(--primary);
 }
+
 label {
     font-size: 0.9rem;
     position: absolute;
     top: 12px;
     left: 8px;
     background: var(--background);
-    color: var(--disabled);
+    color: var(--background-400);
+	letter-spacing: 1px;
+	font-weight: bold;
+	text-transform: uppercase;
 }
-@media(width<620px){
 
+
+#hero-title {
+	font-size: 4.6rem;
+	height: fit-content;
+	width: 100%;
+	text-align: center;
+    font-family: "JetBrains Mono", monospace;
+	padding: 0 32px;
 }
+
+#hero-title span {
+    font-family: "JetBrains Mono", monospace;
+}
+
 
 @media (width<865px) {
 	#hero-title {
