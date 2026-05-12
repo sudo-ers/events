@@ -8,7 +8,7 @@
 #upcoming,
 #past {
 	font-size: 2.4rem;    
-	font-family: "JetBrains Mono", monospace;
+	font-family: "Fira Code", monospace;
 	text-transform: uppercase;
 	padding-left: 46px;
 	padding-top: 80px;
@@ -29,7 +29,7 @@
 
 #this-month-events-section,
 #upcoming-events-section {
-	border-bottom: var(--disabled) 2px dashed;
+	border-bottom: var(--background-200) 1px solid;
 }
 
 .event-card {
@@ -75,7 +75,7 @@
 	font-size: 1.4rem;
 	margin-top: 12px;
 	color: var(--primary);
-	font-family: "JetBrains Mono", monospace;
+	font-family: "Fira Code", monospace;
 	max-width: 380px;
 	min-height: 90px;
 }
@@ -85,6 +85,8 @@
 	flex-wrap: wrap;
 	flex-direction: column;
 	gap: 16px;
+	padding-top: 32px;
+	border-top: 1px dashed var(--background-200);
 }
 
 .event-location {
@@ -155,6 +157,7 @@
 	overflow: hidden;
 	text-overflow: ellipsis;
 	margin: 0;
+	font-family: "Fira Sans";
 }
 
 .no-events {

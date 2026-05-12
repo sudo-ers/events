@@ -1,72 +1,78 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Communities</title>
-	<link rel="stylesheet" href="style.css">
-	<link rel="stylesheet" href="communities_style.css">
-	<link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
-	<script src="script.js" defer></script>
-</head>
-<body>
-	<!-- NAVBAR -->
-	<nav id="navbar">
-		<div id="navtitle">
-			<a href="/">sud0ers</a>
-		</div>
-		<a href="https://github.com/Tharun-Kumar-A-01/FOSSTamilan"><button id="navgitbtn">Contribute</button></a>
-	</nav>
-	<div id="breadcrumbs">~/<a href="../../">sud0ers</a>/<a href="../">events</a>/<p>communities</p></div>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Communities</title>
+		<link rel="stylesheet" href="style.css" />
+		<link rel="stylesheet" href="communities_style.css" />
+		<link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />
+		<script src="script.js" defer></script>
+	</head>
+	<body>
+		<!-- NAVBAR -->
+		<header id="navbar">
+			<div id="header-container">
+				<div id="navtitle">
+					<a href="../">sudoers</a>
+				</div>
+				<div id="breadcrumbs">
+					<a href="../../">~</a>/
+					<p>events</p>
+				</div>
+			</div>
+			<nav id="navlinks">
+				<ul>
+					<li><a href="blog/">blog/</a></li>
+					<li><a href="events/">events/</a></li>
+					<li><a href="tags/">tags/</a></li>
+				</ul>
+			</nav>
+		</header>
 
-	<!-- HERO SECTION  -->
-	<section class="hero section">
-			<h1 id="hero-title">Tech Communities across <br><span style="color: var(--primary);">Tamil Nadu</span></h1>
-	</section>
+		<!-- HERO SECTION  -->
+		<section class="hero section">
+			<h1 id="hero-title">
+				Tech Communities across <br /><span
+					style="color: var(--primary)"
+					>Tamil Nadu</span
+				>
+			</h1>
+		</section>
 
-	<main class="communities section" id="communities-section">
-		<div id="communities-container">
-			<p>Loading...</p>
-		</div>
-	</main>
+		<main class="communities section" id="communities-section">
+			<div id="communities-container">
+				<p>Loading...</p>
+			</div>
+		</main>
 
-   	<style>
+		<style>
 
-		@font-face {
-			font-family: 'Noto Serif Tamil';
-			src: url('../fonts/Noto_Serif_Tamil/NotoSerifTamil_Regular.woff2') format('woff2');
-			font-weight: normal;
-			font-display: swap;
-			font-style: normal;
-		}
+			@font-face {
+				font-family: "Fira Code";
+				font-style: normal;
+				/*font-weight: normal;*/
+				font-display: swap;
+				src: url("../fonts/Fira_Code/FiraCode_Regular.woff2") format("woff2-variations");
+			}
 
-		@font-face {
-			font-family: 'JetBrains Mono';
-			font-style: normal;
-			font-weight: normal;
-			font-display: swap;
-			src: url("../fonts/JetBrains_Mono/JetBrainsMono-Regular.woff2") format('woff2');
-		}
+			/* Ioskeley Mono - Bold */
+			@font-face {
+				font-family: "Fira Sans";
+				font-style: normal;
+				font-weight: normal;
+				font-display: swap;
+				src: url("../fonts/Fira_Sans/FiraSans-Regular.woff2") format("woff2");
+			}
 
-		/* Ioskeley Mono - Bold */
-		@font-face {
-			font-family: 'JetBrains Mono';
-			font-style: normal;
-			font-weight: bold;
-			font-display: swap;
-			src: url("../fonts/JetBrains_Mono/JetBrainsMono-Bold.woff2") format('woff2');
-		}
-
-		/* Ioskeley Mono - MediumItalic */
-		@font-face {
-			font-family: 'JetBrains Mono';
-			font-style: italic;
-			font-weight: normal;
-			font-display: swap;
-			src: url("../fonts/JetBrains_Mono/JetBrainsMono-MediumItalic.woff2") format('woff2');
-		}
-
-	</style>
-
-</body>
+			/* Ioskeley Mono - MediumItalic */
+			@font-face {
+				font-family: "Fira Sans";
+				font-style: italic;
+				font-weight: normal;
+				font-display: swap;
+				src: url("../fonts/Fira_Sans/FiraSans-Italic.woff2") format("woff2");
+			}
+		</style>
+	</body>
 </html>

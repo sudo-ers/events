@@ -75,7 +75,7 @@
 	font-size: 1.4rem;
 	margin-top: 12px;
 	color: var(--primary);
-	font-family: "JetBrains Mono", monospace;
+	font-family: "Fira Code", monospace;
 	max-width: 380px;
 	min-height: 60px;
 }
@@ -98,7 +98,7 @@
 
 .event-location p {
 	background-color: var(--primary);
-	padding: 3px 12px 5px;
+	padding: 4px 12px 5px;
 	margin: 0;
 	border-top: 1px solid var(--primary);
 }
@@ -106,8 +106,8 @@
 .triangle {
   width: 0;
   height: 0;
-  border-left: 30px solid transparent;
-  border-bottom: 30px solid var(--primary);
+  border-left: 31px solid transparent;
+  border-bottom: 31px solid var(--primary);
   transform: rotate(270deg);
   position: relative;
   top: 0px;
@@ -130,6 +130,14 @@
 	display: flex;
 	gap: 16px;
 	align-items: center;
+}
+
+.link-box svg {
+	--svg-icon-color: var(--background-600);
+}
+
+.link-box:hover svg {
+	--svg-icon-color: var(--primary);
 }
 
 @media (width<512px) {

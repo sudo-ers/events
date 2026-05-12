@@ -11,14 +11,22 @@
     <script type="module" src="./script.js" defer></script>
 </head>
 <body>
-    <!-- NAVBAR -->
-	<nav id="navbar">
+	<!-- NAVBAR -->
+	<header id="navbar">
+		<div id="header-container">
 		<div id="navtitle">
-			<a href="/">sud0ers</a>
+			<a href="../">sudoers</a>
 		</div>
-		<a href="https://github.com/Tharun-Kumar-A-01/FOSSTamilan"><button id="navgitbtn">Contribute</button></a>
+	<div id="breadcrumbs"><a href="../../">~</a>/<p>events</p></div>
+		</div>
+	<nav id="navlinks">
+		<ul>
+		<li><a href="blog/">blog/</a></li>
+		<li><a href="events/">events/</a></li>
+		<li><a href="tags/">tags/</a></li>
+		</ul>
 	</nav>
-	<div id="breadcrumbs">~/<a href="../../">sud0ers</a>/<a href="../">events</a>/<p>admin</p></div>
+	</header>
    
 	<!-- HERO SECTION  -->
 	<div id="main-container">
@@ -42,42 +50,34 @@
 
     <button id="logoutBtn">Logout</button>
 
-   	<style>
-
+    <style>
+	   
 		@font-face {
-			font-family: 'Noto Serif Tamil';
-			src: url('../fonts/Noto_Serif_Tamil/NotoSerifTamil_Regular.woff2') format('woff2');
-			font-weight: normal;
-			font-display: swap;
+			font-family: 'Fira Code';
 			font-style: normal;
-		}
-
-		@font-face {
-			font-family: 'JetBrains Mono';
-			font-style: normal;
-			font-weight: normal;
+			/*font-weight: normal;*/
 			font-display: swap;
-			src: url("../fonts/JetBrains_Mono/JetBrainsMono-Regular.woff2") format('woff2');
+			src: url("..fonts/Fira_Code/FiraCode_Regular.woff2") format('woff2-variations');
 		}
-
+		   
 		/* Ioskeley Mono - Bold */
 		@font-face {
-			font-family: 'JetBrains Mono';
+			font-family: 'Fira Sans';
 			font-style: normal;
-			font-weight: bold;
+			font-weight: normal;
 			font-display: swap;
-			src: url("../fonts/JetBrains_Mono/JetBrainsMono-Bold.woff2") format('woff2');
+			src: url("../fonts/Fira_Sans/FiraSans-Regular.woff2") format('woff2');
 		}
-
+		   
 		/* Ioskeley Mono - MediumItalic */
 		@font-face {
-			font-family: 'JetBrains Mono';
+			font-family: 'Fira Sans';
 			font-style: italic;
 			font-weight: normal;
 			font-display: swap;
-			src: url("../fonts/JetBrains_Mono/JetBrainsMono-MediumItalic.woff2") format('woff2');
+			src: url("../fonts/Fira_Sans/FiraSans-Italic.woff2") format('woff2');
 		}
-
+		   
 	</style>
 
 </body>

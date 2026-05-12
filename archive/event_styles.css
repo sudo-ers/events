@@ -6,7 +6,7 @@
 
 #past {
 	font-size: 2.4rem;    
-	font-family: "JetBrains Mono", monospace;
+	font-family: "Fira Code", monospace;
 	text-transform: uppercase;
 	padding-left: 46px;
 	padding-top: 80px;
@@ -66,7 +66,7 @@
 	font-size: 1.4rem;
 	margin-top: 12px;
 	color: var(--primary);
-	font-family: "JetBrains Mono", monospace;
+	font-family: "Fira Code", monospace;
 	max-width: 380px;
 	min-height: 90px;
 }
@@ -75,7 +75,8 @@
 	display: flex;
 	flex-wrap: wrap;
 	flex-direction: column;
-	gap: 16px;
+	gap: 16px;	padding-top: 32px;
+	border-top: 1px dashed var(--background-200);
 }
 
 .event-location {
@@ -145,6 +146,7 @@
 	-webkit-box-orient: vertical;
 	overflow: hidden;
 	text-overflow: ellipsis;
+	font-family: "Fira Sans";
 	margin: 0;
 }
 

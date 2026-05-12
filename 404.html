@@ -7,44 +7,122 @@
 	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body>
-	<nav id="navbar">
+	<!-- NAVBAR -->
+	<header id="navbar">
+		<div id="header-container">
 		<div id="navtitle">
-			<a href="../">sud0ers</a>
+			<a href="../">sudoers</a>
 		</div>
-		<a href="https://github.com/Tharun-Kumar-A-01/FOSSTamilan"><button id="navgitbtn">Contribute</button></a>
+	<div id="breadcrumbs"><a href="../../">~</a>/<p>events</p></div>
+		</div>
+	<nav id="navlinks">
+		<ul>
+		<li><a href="blog/">blog/</a></li>
+		<li><a href="events/">events/</a></li>
+		<li><a href="tags/">tags/</a></li>
+		</ul>
 	</nav>
-	<div id="breadcrumbs">~/<a href="/">sud0ers</a>/<a href="/events">events</a><p id="404-path"></p></div>
-
+	</header>
+	
 	<!-- HERO SECTION  -->
 	<section class="hero section">
 		<div id = "container">
 			<p id="error">:(  ERROR</p>
 			<h1 id="code-404">404</h1><br>
-			<h3 id="error-desc"><span style="color: var(--primary);">$ </span>cd <span id="url-path" style="color: var(--text);"></span><br><span style="color: var(--text);">No such file or directory</span></h3>
-			<a href="/events"><button id="go-back-btn">Go Back</button></a>
+			<p id="error-desc">user not in sudoers file.<br>This incident will be reported.</p><br>
+			<a href="/"><button id="go-back-btn">Go Back</button></a>
 		</div>
 	</section>
 	
 	<script>
 		const path = window.location.pathname;
-		document.getElementById('404-path').textContent = path.slice(7);
-		document.getElementById('url-path').textContent = path.slice(7);
 	</script>
 	
 	<style>
+	@media (prefers-color-scheme: light) {
+
 		:root {
-		    --primary: #7bee5e;
-		    --secondary: #77ca62;
-		    --foreground: #eceae5d8;
-		    --background: #131313;
-		    --fg: var(--foreground);
-		    --bg: var(--background);
-		    --text: var(--foreground);
-		    --disabled: #4b4b4b;
+			--foreground: #1b2419;
+			--background: #f0f0f0;
+			--primary: #148b04;
+			--secondary: #499d34;
+			--accent: #22ce6f;
+			--fg: var(--foreground);
+			--bg: var(--background);
+			--text: var(--foreground);
+			--disabled: #333333;
+			--error: #d00b0b;
+			
+			--text-50: #f1f5f0;
+			--text-100: #e3eae1;
+			--text-200: #c6d5c3;
+			--text-300: #aac0a5;
+			--text-400: #8dab87;
+			--text-500: #719669;
+			--text-600: #5a7854;
+			--text-700: #445a3f;
+			--text-800: #2d3c2a;
+			--text-900: #171e15;
+			--text-950: #0b0f0a;
+
+			--background-50: #f2f2f2;
+			--background-100: #e6e6e6;
+			--background-200: #cccccc;
+			--background-300: #b3b3b3;
+			--background-400: #999999;
+			--background-500: #808080;
+			--background-600: #666666;
+			--background-700: #4d4d4d;
+			--background-800: #333333;
+			--background-900: #1a1a1a;
+			--background-950: #0d0d0d;
+
 		}
-		
+}
+
+@media (prefers-color-scheme: dark) {
+
+		:root {
+			--foreground: #dde6db;
+			--background: #0f0f0f;
+			--primary: #84fb74;
+			--secondary: #77cb62;
+			--accent: #31dd7f;
+			--fg: var(--foreground);
+			--bg: var(--background);
+			--text: var(--foreground);
+			--disabled: #4d4d4d;
+			--error: #f42f2f;
+
+			--text-50: #0b0f0a;
+			--text-100: #171e15;
+			--text-200: #2d3c2a;
+			--text-300: #445a3f;
+			--text-400: #5a7854;
+			--text-500: #719669;
+			--text-600: #8dab87;
+			--text-700: #aac0a5;
+			--text-800: #c6d5c3;
+			--text-900: #e3eae1;
+			--text-950: #f1f5f0;
+
+			--background-50: #0d0d0d;
+			--background-100: #1a1a1a;
+			--background-200: #333333;
+			--background-300: #4d4d4d;
+			--background-400: #666666;
+			--background-500: #808080;
+			--background-600: #999999;
+			--background-700: #b3b3b3;
+			--background-800: #cccccc;
+			--background-900: #e6e6e6;
+			--background-950: #f2f2f2;
+
+		}
+}
+
 		* {
-		    font-family: "Ioskeley Mono", monospace;
+		    font-family: "Fira Code", monospace;
 		}
 		
 		body {
@@ -52,7 +130,7 @@
 		    padding: 0;
 		    background: var(--bg);
 		    color: var(--text);
-		    font-family: "Ioskeley Mono", monospace;
+		    font-family: "Fira Code", monospace;
 		}
 		
 		a {
@@ -75,92 +153,102 @@
 		}
 		
 		#navbar {
-		  display: flex;
-		  align-items: center;
-		  justify-content: space-between;
-		  margin: 19px 20px;
-		}
-		
-		#navtitle {
-		  display: flex;
-		  flex: 1;
-		}
-		
-		#navtitle::after {
-		  content: "";
-		  background: repeating-linear-gradient(90deg, var(--primary), var(--primary) 2px, transparent 0, transparent 10px);
-		  display: block;
-		  width: 100%;
-		  right: 10px;
-		}
-		
-		#navtitle a {
-		    height: 28px;
-		  flex: 0 0 auto;
-		  max-width: 100%;
-		  text-decoration: none;
-		  font-size: calc(1.7rem / 1.5);
-		  line-height: 1.54rem;
-		}
-		
-		#navtitle a {
-		  display: flex;
-		  align-items: center;
-		  text-decoration: none;
-		  background: var(--primary);
-		  color: var(--background);
-		  font-weight: bold;
-		  padding: 5px 10px;
-		}
-		
-		
-		#navigation-box {
-		    display: none;
-		}
-		
-		button {
-		    height: fit-content;
-		    padding: 8px 18px;
-		    background-color: var(--bg);
-		    color: var(--primary);
-		    border: var(--primary) 2px solid;
-		    cursor: pointer;
-		    text-transform: uppercase;
-		    font-size: 1rem;
-		}
-		
-		#go-back-btn {
-		    margin-top: 10px;
-		}
-		
-		button:hover {
-		    border-color: var(--primary);
-		    border-style: solid;
-		    color: var(--primary);
-		    text-decoration: underline;
-		}
-		
-		#breadcrumbs {
-		    margin: 32px 32px;
-		    font-size: calc(1.7rem / 1.5);
-		    padding-bottom: 8px;
-		    color: var(--primary);
-		    display: flex;
-		    flex-direction: row;
-		}
-		
-		
-		#breadcrumbs a {
-		    color: var(--primary);
-		}
-		#breadcrumbs p {
-		    margin: 0;
-		    color: var(--primary);
-		}
-		#breadcrumbs a:hover {
-		    text-decoration: underline;
-		}
-		
+			margin: 32px;
+			border-bottom: 1px solid var(--background-200);
+    
+}
+
+#header-container {
+  display: flex;
+  align-items: center;
+  /*justify-content: space-between;*/
+}
+
+#navtitle {
+  display: flex;
+}
+
+
+#navtitle a {
+			padding: 5px 10px;
+  flex: 0 0 auto;
+  text-decoration: none;
+  font-size: 1rem;
+  line-height: 1.54rem;
+}
+
+#navtitle a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  background: var(--primary);
+  color: var(--background);
+  font-weight: bold;
+  padding: 5px 10px;
+}
+
+#navigation-box {
+    display: none;
+}
+
+button {
+    height: fit-content;
+    padding: 8px 18px;
+    background-color: var(--bg);
+    color: var(--primary);
+    border: var(--primary) 1px solid;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: var(--primary);
+    border-style: solid;
+    color: var(--bg);
+}
+
+#breadcrumbs {
+    font-size: 1rem;
+    padding-left: 12px;
+    color: var(--primary);
+    display: flex;
+    flex-direction: row;
+}
+
+#breadcrumbs a {
+    color: var(--primary);
+}
+#breadcrumbs p {
+    margin: 0;
+    color: var(--primary);
+}
+#breadcrumbs a:hover {
+    text-decoration: underline;
+}
+
+#navlinks {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    padding: 0;
+    margin: 20px 1px;
+}
+
+#navlinks ul {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    padding: 1px 0 12px;
+    gap: 10px 20px;
+    margin: 0;
+}
+
+#navlinks li a {
+    color: var(--primary);
+    text-decoration: underline;
+}
 		
 		.hero {
 		    display: flex;
@@ -194,39 +282,31 @@
 	
 	<style>
 
-		@font-face {
-			font-family: 'Noto Serif Tamil';
-			src: url('./fonts/Noto_Serif_Tamil/NotoSerifTamil_Regular.woff2') format('woff2');
-			font-weight: normal;
-			font-display: swap;
-			font-style: normal;
-		}
+	@font-face {
+		font-family: 'Fira Code';
+		font-style: normal;
+		/*font-weight: normal;*/
+		font-display: swap;
+		src: url("./fonts/Fira_Code/FiraCode_Regular.woff2") format('woff2-variations');
+	}
 
-		@font-face {
-			font-family: 'JetBrains Mono';
-			font-style: normal;
-			font-weight: normal;
-			font-display: swap;
-			src: url("./fonts/JetBrains_Mono/JetBrainsMono-Regular.woff2") format('woff2');
-		}
+	/* Ioskeley Mono - Bold */
+	@font-face {
+		font-family: 'Fira Sans';
+		font-style: normal;
+		font-weight: normal;
+		font-display: swap;
+		src: url("./fonts/Fira_Sans/FiraSans-Regular.woff2") format('woff2');
+	}
 
-		/* Ioskeley Mono - Bold */
-		@font-face {
-			font-family: 'JetBrains Mono';
-			font-style: normal;
-			font-weight: bold;
-			font-display: swap;
-			src: url("./fonts/JetBrains_Mono/JetBrainsMono-Bold.woff2") format('woff2');
-		}
-
-		/* Ioskeley Mono - MediumItalic */
-		@font-face {
-			font-family: 'JetBrains Mono';
-			font-style: italic;
-			font-weight: normal;
-			font-display: swap;
-			src: url("./fonts/JetBrains_Mono/JetBrainsMono-MediumItalic.woff2") format('woff2');
-		}
+	/* Ioskeley Mono - MediumItalic */
+	@font-face {
+		font-family: 'Fira Sans';
+		font-style: italic;
+		font-weight: normal;
+		font-display: swap;
+		src: url("./fonts/Fira_Sans/FiraSans-Italic.woff2") format('woff2');
+	}
 
 	</style>
 </body>

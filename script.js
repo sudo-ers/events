@@ -143,7 +143,7 @@ async function run() {
 	const response = await fetch("https://raw.githubusercontent.com/FOSSUChennai/Communities/refs/heads/main/src/data/events.json");
 	events = await response.json();
 
-	// console.log(events);
+	console.log(events);
 	// const registered_events_response = await fetch(API_BASE+"/events");
 	// let registered_events = await registered_events_response.json();
 	

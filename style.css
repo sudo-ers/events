@@ -176,7 +176,7 @@
 }
 
 * {
-    font-family: "JetBrains Mono", monospace;
+    font-family: "Fira Code", monospace;
 }
 
 body {
@@ -184,7 +184,7 @@ body {
     padding: 0;
     background: var(--bg);
     color: var(--text);
-    font-family: "JetBrains Mono", monospace;
+    font-family: "Fira Code", monospace;
 }
 
 a {
@@ -198,31 +198,27 @@ a:visited {
 }
 
 #navbar {
+	margin: 32px;
+	border-bottom: 1px solid var(--background-200);
+    
+}
+
+#header-container {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  margin: 20px 20px;
+  /*justify-content: space-between;*/
 }
 
 #navtitle {
   display: flex;
-  flex: 1;
 }
 
-#navtitle::after {
-  content: "";
-  background: repeating-linear-gradient(90deg, var(--primary), var(--primary) 2px, transparent 0, transparent 10px);
-  display: block;
-  width: 100%;
-  right: 10px;
-}
 
 #navtitle a {
-    height: 28px;
+	padding: 5px 10px;
   flex: 0 0 auto;
-  max-width: 100%;
   text-decoration: none;
-  font-size: calc(1.7rem / 1.5);
+  font-size: 1rem;
   line-height: 1.54rem;
 }
 
@@ -259,9 +255,8 @@ button:hover {
 }
 
 #breadcrumbs {
-    margin: 32px 32px;
-    font-size: calc(1.7rem / 1.5);
-    padding-bottom: 8px;
+    font-size: 1rem;
+    padding-left: 12px;
     color: var(--primary);
     display: flex;
     flex-direction: row;
@@ -278,6 +273,27 @@ button:hover {
     text-decoration: underline;
 }
 
+#navlinks {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    padding: 0;
+    margin: 20px 1px;
+}
+
+#navlinks ul {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    padding: 1px 0 12px;
+    gap: 10px 20px;
+    margin: 0;
+}
+
+#navlinks li a {
+    color: var(--primary);
+    text-decoration: underline;
+}
 
 .hero {
     display: flex;
@@ -308,7 +324,7 @@ button:hover {
 #hero-title {
     /* font-size: 3.6rem; */
     /* margin-top: 0; */
-    font-family: "JetBrains Mono", monospace;
+    font-family: "Fira Code", monospace;
 
 	font-size: 4.6rem;
 	height: fit-content;
@@ -319,7 +335,7 @@ button:hover {
 }
 
 #hero-title span {
-    font-family: "JetBrains Mono", monospace;
+    font-family: "Fira Code", monospace;
 }
 
 #contextmenu {
@@ -362,8 +378,8 @@ button:hover {
         height: 4vh;
         align-items: center;
         margin: 0;
-        border-bottom: var(--text) 2px inset;
-        box-shadow: var(--background) 0 0 20px 7px;
+        border-bottom: var(--background-200) 1px inset;
+        box-shadow: var(--background) 0 0 56px 49px;
     }
 
     #navigation-this-month:hover,
